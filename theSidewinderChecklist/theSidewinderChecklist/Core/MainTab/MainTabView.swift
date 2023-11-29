@@ -12,7 +12,7 @@ struct MainTabView: View {
     
     var body: some View {
         TabView(selection: $selectedIndex) {
-            Text("Build View")
+            StartView()
                 .onAppear{
                     selectedIndex = 0
                 }
@@ -34,17 +34,25 @@ struct MainTabView: View {
                     selectedIndex = 2
                 }
                 .tabItem{
-                    Image(systemName: "lanyardcard")
+                    Image(systemName: "pencil.and.list.clipboard")
                     Text("Planning")
                 }.tag(2)
-            SettingsView()
+            Text("Build Logs")
                 .onAppear{
                     selectedIndex = 3
                 }
                 .tabItem{
+                    Image(systemName: "tray")
+                    Text("Logs")
+                }.tag(3)
+            SettingsView()
+                .onAppear{
+                    selectedIndex = 4
+                }
+                .tabItem{
                     Image(systemName: "gear")
                     Text("Settings")
-                }.tag(3)
+                }.tag(4)
             
         }
         .navigationBarBackButtonHidden(true)

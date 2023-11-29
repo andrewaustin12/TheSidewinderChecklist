@@ -20,6 +20,23 @@
 		3FA197E92B17469B00B66CC0 /* GearListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197E82B17469B00B66CC0 /* GearListView.swift */; };
 		3FA197EB2B1746DB00B66CC0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197EA2B1746DB00B66CC0 /* DetailView.swift */; };
 		3FA197ED2B1746F700B66CC0 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197EC2B1746F700B66CC0 /* ToDo.swift */; };
+		3FA197F22B1752FD00B66CC0 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197F12B1752FD00B66CC0 /* StartView.swift */; };
+		3FA197F42B17533900B66CC0 /* PrimaryButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197F32B17533900B66CC0 /* PrimaryButtonModifier.swift */; };
+		3FA197F62B1753B600B66CC0 /* ComputerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197F52B1753B600B66CC0 /* ComputerView.swift */; };
+		3FA197F82B1755DF00B66CC0 /* LinearityChartAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197F72B1755DF00B66CC0 /* LinearityChartAir.swift */; };
+		3FA197FA2B175B4600B66CC0 /* testchart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197F92B175B4600B66CC0 /* testchart.swift */; };
+		3FA197FC2B17850200B66CC0 /* ScrubbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197FB2B17850200B66CC0 /* ScrubbersView.swift */; };
+		3FA197FE2B17878B00B66CC0 /* CounterlungView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197FD2B17878B00B66CC0 /* CounterlungView.swift */; };
+		3FA198002B1788A300B66CC0 /* LoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197FF2B1788A300B66CC0 /* LoopView.swift */; };
+		3FA198022B178A9A00B66CC0 /* NegativeTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA198012B178A9A00B66CC0 /* NegativeTestView.swift */; };
+		3FA198042B178ED000B66CC0 /* InlineTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA198032B178ED000B66CC0 /* InlineTimer.swift */; };
+		3FA198062B17A20100B66CC0 /* OxygenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA198052B17A20100B66CC0 /* OxygenView.swift */; };
+		3FA198082B17A44C00B66CC0 /* FlushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA198072B17A44C00B66CC0 /* FlushView.swift */; };
+		3FA1980A2B17A84100B66CC0 /* CalibrateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA198092B17A84100B66CC0 /* CalibrateView.swift */; };
+		3FA1980C2B17A8D700B66CC0 /* PositiveCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1980B2B17A8D700B66CC0 /* PositiveCheckView.swift */; };
+		3FA1980E2B17AADC00B66CC0 /* DiluentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1980D2B17AADC00B66CC0 /* DiluentView.swift */; };
+		3FA198102B17B24500B66CC0 /* TransportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1980F2B17B24500B66CC0 /* TransportView.swift */; };
+		3FA198122B17B56500B66CC0 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA198112B17B56500B66CC0 /* SummaryView.swift */; };
 		3FF72A3D2B17356C004C2400 /* theSidewinderChecklistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */; };
 		3FF72A412B17356D004C2400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF72A402B17356D004C2400 /* Assets.xcassets */; };
 		3FF72A442B17356D004C2400 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF72A432B17356D004C2400 /* Preview Assets.xcassets */; };
@@ -68,6 +85,23 @@
 		3FA197E82B17469B00B66CC0 /* GearListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearListView.swift; sourceTree = "<group>"; };
 		3FA197EA2B1746DB00B66CC0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3FA197EC2B1746F700B66CC0 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		3FA197F12B1752FD00B66CC0 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		3FA197F32B17533900B66CC0 /* PrimaryButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonModifier.swift; sourceTree = "<group>"; };
+		3FA197F52B1753B600B66CC0 /* ComputerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerView.swift; sourceTree = "<group>"; };
+		3FA197F72B1755DF00B66CC0 /* LinearityChartAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearityChartAir.swift; sourceTree = "<group>"; };
+		3FA197F92B175B4600B66CC0 /* testchart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testchart.swift; sourceTree = "<group>"; };
+		3FA197FB2B17850200B66CC0 /* ScrubbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrubbersView.swift; sourceTree = "<group>"; };
+		3FA197FD2B17878B00B66CC0 /* CounterlungView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterlungView.swift; sourceTree = "<group>"; };
+		3FA197FF2B1788A300B66CC0 /* LoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopView.swift; sourceTree = "<group>"; };
+		3FA198012B178A9A00B66CC0 /* NegativeTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeTestView.swift; sourceTree = "<group>"; };
+		3FA198032B178ED000B66CC0 /* InlineTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineTimer.swift; sourceTree = "<group>"; };
+		3FA198052B17A20100B66CC0 /* OxygenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxygenView.swift; sourceTree = "<group>"; };
+		3FA198072B17A44C00B66CC0 /* FlushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlushView.swift; sourceTree = "<group>"; };
+		3FA198092B17A84100B66CC0 /* CalibrateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrateView.swift; sourceTree = "<group>"; };
+		3FA1980B2B17A8D700B66CC0 /* PositiveCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveCheckView.swift; sourceTree = "<group>"; };
+		3FA1980D2B17AADC00B66CC0 /* DiluentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiluentView.swift; sourceTree = "<group>"; };
+		3FA1980F2B17B24500B66CC0 /* TransportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportView.swift; sourceTree = "<group>"; };
+		3FA198112B17B56500B66CC0 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		3FF72A392B17356C004C2400 /* theSidewinderChecklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theSidewinderChecklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theSidewinderChecklistApp.swift; sourceTree = "<group>"; };
 		3FF72A402B17356D004C2400 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,6 +211,8 @@
 		3FA197D42B173B8700B66CC0 /* SidewinderBuildFlow */ = {
 			isa = PBXGroup;
 			children = (
+				3FA197F02B1752E500B66CC0 /* ViewModel */,
+				3FA197EF2B1752E200B66CC0 /* Views */,
 			);
 			path = SidewinderBuildFlow;
 			sourceTree = "<group>";
@@ -217,6 +253,7 @@
 		3FA197D92B173C4B00B66CC0 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				3FA197F32B17533900B66CC0 /* PrimaryButtonModifier.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -224,6 +261,7 @@
 		3FA197DA2B173C4D00B66CC0 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				3FA198032B178ED000B66CC0 /* InlineTimer.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -231,6 +269,8 @@
 		3FA197DB2B173C4F00B66CC0 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				3FA197F72B1755DF00B66CC0 /* LinearityChartAir.swift */,
+				3FA197F92B175B4600B66CC0 /* testchart.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -240,6 +280,33 @@
 			children = (
 			);
 			path = DivePlanning;
+			sourceTree = "<group>";
+		};
+		3FA197EF2B1752E200B66CC0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FA197F12B1752FD00B66CC0 /* StartView.swift */,
+				3FA197F52B1753B600B66CC0 /* ComputerView.swift */,
+				3FA197FB2B17850200B66CC0 /* ScrubbersView.swift */,
+				3FA197FD2B17878B00B66CC0 /* CounterlungView.swift */,
+				3FA197FF2B1788A300B66CC0 /* LoopView.swift */,
+				3FA198012B178A9A00B66CC0 /* NegativeTestView.swift */,
+				3FA198052B17A20100B66CC0 /* OxygenView.swift */,
+				3FA198072B17A44C00B66CC0 /* FlushView.swift */,
+				3FA198092B17A84100B66CC0 /* CalibrateView.swift */,
+				3FA1980B2B17A8D700B66CC0 /* PositiveCheckView.swift */,
+				3FA1980D2B17AADC00B66CC0 /* DiluentView.swift */,
+				3FA1980F2B17B24500B66CC0 /* TransportView.swift */,
+				3FA198112B17B56500B66CC0 /* SummaryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3FA197F02B1752E500B66CC0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3FF72A302B17356B004C2400 = {
@@ -403,19 +470,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA197FA2B175B4600B66CC0 /* testchart.swift in Sources */,
 				3FA197CA2B173A3600B66CC0 /* SplashViewModifier.swift in Sources */,
 				3FA197ED2B1746F700B66CC0 /* ToDo.swift in Sources */,
 				3FA197CC2B173A5000B66CC0 /* SplashView.swift in Sources */,
+				3FA198022B178A9A00B66CC0 /* NegativeTestView.swift in Sources */,
 				3FA197C72B1739DF00B66CC0 /* NotificationHandler.swift in Sources */,
 				3FA197E92B17469B00B66CC0 /* GearListView.swift in Sources */,
+				3FA198082B17A44C00B66CC0 /* FlushView.swift in Sources */,
+				3FA198062B17A20100B66CC0 /* OxygenView.swift in Sources */,
+				3FA197F42B17533900B66CC0 /* PrimaryButtonModifier.swift in Sources */,
+				3FA1980E2B17AADC00B66CC0 /* DiluentView.swift in Sources */,
 				3FF72A3D2B17356C004C2400 /* theSidewinderChecklistApp.swift in Sources */,
+				3FA197F82B1755DF00B66CC0 /* LinearityChartAir.swift in Sources */,
+				3FA197F62B1753B600B66CC0 /* ComputerView.swift in Sources */,
+				3FA197F22B1752FD00B66CC0 /* StartView.swift in Sources */,
+				3FA198122B17B56500B66CC0 /* SummaryView.swift in Sources */,
+				3FA198042B178ED000B66CC0 /* InlineTimer.swift in Sources */,
+				3FA198102B17B24500B66CC0 /* TransportView.swift in Sources */,
 				3FA197E12B173D2D00B66CC0 /* WarningHeaderView.swift in Sources */,
+				3FA1980A2B17A84100B66CC0 /* CalibrateView.swift in Sources */,
+				3FA197FC2B17850200B66CC0 /* ScrubbersView.swift in Sources */,
 				3FA197CF2B173AF700B66CC0 /* WarningView.swift in Sources */,
 				3FA197EB2B1746DB00B66CC0 /* DetailView.swift in Sources */,
+				3FA197FE2B17878B00B66CC0 /* CounterlungView.swift in Sources */,
 				3FA197DD2B173CA300B66CC0 /* RoundedShape.swift in Sources */,
 				3FA197E32B173D7E00B66CC0 /* TitleHeaderView.swift in Sources */,
+				3FA198002B1788A300B66CC0 /* LoopView.swift in Sources */,
 				3FA197DF2B173CF700B66CC0 /* ProgressBarView.swift in Sources */,
 				3FA197E52B173DC700B66CC0 /* MainTabView.swift in Sources */,
+				3FA1980C2B17A8D700B66CC0 /* PositiveCheckView.swift in Sources */,
 				3FA197E72B173E0D00B66CC0 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
