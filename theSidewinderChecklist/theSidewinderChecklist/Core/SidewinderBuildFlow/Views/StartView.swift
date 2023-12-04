@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StartView: View {
-//    @StateObject var appViewModel = AppViewModel()
+    @StateObject var buildViewModel = BuildViewModel()
     
     var body: some View {
         NavigationStack {
@@ -24,7 +24,7 @@ struct StartView: View {
             .padding()
                 
             NavigationLink {
-                ComputerView()
+                ComputerView(buildViewModel: buildViewModel)
             } label: {
                 Text("Begin")
             }

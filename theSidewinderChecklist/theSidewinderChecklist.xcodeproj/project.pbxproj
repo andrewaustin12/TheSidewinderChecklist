@@ -37,6 +37,7 @@
 		3FA1980E2B17AADC00B66CC0 /* DiluentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1980D2B17AADC00B66CC0 /* DiluentView.swift */; };
 		3FA198102B17B24500B66CC0 /* TransportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1980F2B17B24500B66CC0 /* TransportView.swift */; };
 		3FA198122B17B56500B66CC0 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA198112B17B56500B66CC0 /* SummaryView.swift */; };
+		3FA198142B18864C00B66CC0 /* BuildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA198132B18864C00B66CC0 /* BuildViewModel.swift */; };
 		3FF72A3D2B17356C004C2400 /* theSidewinderChecklistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */; };
 		3FF72A412B17356D004C2400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF72A402B17356D004C2400 /* Assets.xcassets */; };
 		3FF72A442B17356D004C2400 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF72A432B17356D004C2400 /* Preview Assets.xcassets */; };
@@ -102,6 +103,7 @@
 		3FA1980D2B17AADC00B66CC0 /* DiluentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiluentView.swift; sourceTree = "<group>"; };
 		3FA1980F2B17B24500B66CC0 /* TransportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportView.swift; sourceTree = "<group>"; };
 		3FA198112B17B56500B66CC0 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		3FA198132B18864C00B66CC0 /* BuildViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildViewModel.swift; sourceTree = "<group>"; };
 		3FF72A392B17356C004C2400 /* theSidewinderChecklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theSidewinderChecklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theSidewinderChecklistApp.swift; sourceTree = "<group>"; };
 		3FF72A402B17356D004C2400 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		3FA197F02B1752E500B66CC0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3FA198132B18864C00B66CC0 /* BuildViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				3FA198062B17A20100B66CC0 /* OxygenView.swift in Sources */,
 				3FA197F42B17533900B66CC0 /* PrimaryButtonModifier.swift in Sources */,
 				3FA1980E2B17AADC00B66CC0 /* DiluentView.swift in Sources */,
+				3FA198142B18864C00B66CC0 /* BuildViewModel.swift in Sources */,
 				3FF72A3D2B17356C004C2400 /* theSidewinderChecklistApp.swift in Sources */,
 				3FA197F82B1755DF00B66CC0 /* LinearityChartAir.swift in Sources */,
 				3FA197F62B1753B600B66CC0 /* ComputerView.swift in Sources */,
@@ -711,7 +715,7 @@
 				DEVELOPMENT_TEAM = BV862H23C8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = theSidewinderChecklist;
+				INFOPLIST_KEY_CFBundleDisplayName = TheSidewinderChecklist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -744,7 +748,7 @@
 				DEVELOPMENT_TEAM = BV862H23C8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = theSidewinderChecklist;
+				INFOPLIST_KEY_CFBundleDisplayName = TheSidewinderChecklist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
