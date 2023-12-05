@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct FlushView: View {
-    @State private var isDsvFlushedChecked = false
-    @State private var selectedTime = false
-    @State private var referenceValue: String = ""
+    @ObservedObject var buildViewModel: BuildViewModel
     
+    @State private var referenceValue: String = ""
     @FocusState private var focusedTextField: FormTextField?
     
     enum FormTextField {
@@ -22,15 +21,15 @@ struct FlushView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
-                TitleHeaderView(title: "Oxygen Flush")
+                TitleHeaderView(title: "Flush")
                 ProgressBarView(progress: Double((350/10) * 6))
                     .padding(.leading)
                 
                 Form {
                     Section {
-                        Toggle("With DSV half open, flush the rebreather slowly with O2. Monitor the cells for smooth and even PO2 increases", isOn: $isDsvFlushedChecked)
+                        Toggle("With DSV half open, flush the rebreather slowly with O2. Monitor the cells for smooth and even PO2 increases", isOn: $buildViewModel.flushViewModel.isDsvFlushedChecked)
                         
-                        Toggle("Record the millivolts from each of the cells with oxygen (1.00) in the linearity chard", isOn: $isDsvFlushedChecked)
+                        Toggle("Record the millivolts from each of the cells with oxygen (1.00) in the linearity chart", isOn: $buildViewModel.flushViewModel.isOxygenMvRecordedChecked)
  
                     } header: {
                         Text("Steps 18-19")
@@ -39,12 +38,12 @@ struct FlushView: View {
                     Section {
                         Text("Linearity Chart here")
                     } header: {
-                        Text("Linearity Chartf")
+                        Text("Linearity Chart")
                     }
                     
                 }
                 NavigationLink("Next") {
-                    CalibrateView()
+                    CalibrateView(buildViewModel: buildViewModel)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -69,5 +68,5 @@ struct FlushView: View {
 }
 
 #Preview {
-    FlushView()
+    FlushView(buildViewModel: BuildViewModel())
 }

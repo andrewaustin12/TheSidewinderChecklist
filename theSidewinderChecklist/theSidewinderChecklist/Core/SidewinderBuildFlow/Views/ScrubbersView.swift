@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ScrubbersView: View {
-    @State private var isCannistersPackedChecked = false
-    @State private var isCannistersOringsInspectedChecked = false
-    @State private var isCannistersTowersAlignedChecked = false
+    @ObservedObject var buildViewModel: BuildViewModel
+    
     @State private var isStackTimeResetChecked = false
     
     var body: some View {
@@ -22,9 +21,9 @@ struct ScrubbersView: View {
                 
                 Form {
                     Section {
-                        Toggle("Fill and pack each cannister with sofnolime", isOn: $isCannistersPackedChecked)
-                        Toggle("Inspect, clean, and lubricate Cannister O-rings if necessary", isOn: $isCannistersOringsInspectedChecked)
-                        Toggle("Attach each cannister head ensuring proper tower alignment", isOn: $isCannistersTowersAlignedChecked)
+                        Toggle("Fill and pack each cannister with sofnolime", isOn: $buildViewModel.scrubbersViewModel.isCannistersPackedChecked)
+                        Toggle("Inspect, clean, and lubricate Cannister O-rings if necessary", isOn: $buildViewModel.scrubbersViewModel.isCannistersOringsInspectedChecked)
+                        Toggle("Attach each cannister head ensuring proper tower alignment", isOn: $buildViewModel.scrubbersViewModel.isCannistersTowersAlignedChecked)
                         Toggle("Reset stack time if needed", isOn: $isStackTimeResetChecked)
                         
                     } header: {
@@ -33,7 +32,7 @@ struct ScrubbersView: View {
                     
                 }
                 NavigationLink("Next") {
-                    CounterlungView()
+                    CounterlungView(buildViewModel: buildViewModel)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -54,5 +53,5 @@ struct ScrubbersView: View {
 }
 
 #Preview {
-    ScrubbersView()
+    ScrubbersView(buildViewModel: BuildViewModel())
 }

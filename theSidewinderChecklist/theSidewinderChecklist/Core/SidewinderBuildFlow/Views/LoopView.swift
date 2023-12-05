@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct LoopView: View {
-    @State private var isMouthpieceInspectedChecked = false
-    @State private var isMushroomValveTestedChecked = false
-    @State private var isLoopOringsInspectedChecked = false
-    @State private var isLoopAttachedChecked = false
+    @ObservedObject var buildViewModel: BuildViewModel
+    
     
     var body: some View {
         NavigationStack {
@@ -22,10 +20,10 @@ struct LoopView: View {
                 
                 Form {
                     Section {
-                        Toggle("Inspect mouthpiece for holes or tears", isOn: $isMouthpieceInspectedChecked)
-                        Toggle("Perform mushroom valve check", isOn: $isMushroomValveTestedChecked)
-                        Toggle("Inspect, clean and lubricate loop o-rings as needed", isOn: $isLoopOringsInspectedChecked)
-                        Toggle("Attach loop to towers ensuring correct alignment of DSV", isOn: $isLoopAttachedChecked)
+                        Toggle("Inspect mouthpiece for holes or tears", isOn: $buildViewModel.loopViewModel.isMouthpieceInspectedChecked)
+                        Toggle("Perform mushroom valve check", isOn: $buildViewModel.loopViewModel.isMushroomValveTestedChecked)
+                        Toggle("Inspect, clean and lubricate loop o-rings as needed", isOn: $buildViewModel.loopViewModel.isLoopOringsInspectedChecked)
+                        Toggle("Attach loop to towers ensuring correct alignment of DSV", isOn: $buildViewModel.loopViewModel.isLoopAttachedChecked)
                         
                     } header: {
                         Text("Steps 10-13")
@@ -33,7 +31,7 @@ struct LoopView: View {
                     
                 }
                 NavigationLink("Next") {
-                    NegativeTestView()
+                    NegativeTestView(buildViewModel: BuildViewModel())
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -54,5 +52,5 @@ struct LoopView: View {
 }
 
 #Preview {
-    LoopView()
+    LoopView(buildViewModel: BuildViewModel())
 }

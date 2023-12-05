@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TransportView: View {
-    @State private var isDsvClosedChecked = false
-    @State private var isO2closedChecked = false
-    @State private var isComputerSecuredChecked = false
+    @ObservedObject var buildViewModel: BuildViewModel
     
     var body: some View {
         NavigationStack {
@@ -21,13 +19,13 @@ struct TransportView: View {
                 
                 Form {
                     Section {
-                        Toggle("DSV is closed", isOn: $isDsvClosedChecked)
-                        Toggle("Insure O2 cylinder is still closed", isOn: $isO2closedChecked)
-                        Toggle("Computer is clipped and secured", isOn: $isComputerSecuredChecked)
+                        Toggle("DSV is closed", isOn: $buildViewModel.transportViewModel.isDsvClosedChecked)
+                        Toggle("Insure O2 cylinder is still closed", isOn: $buildViewModel.transportViewModel.isO2closedChecked)
+                        Toggle("Computer is clipped and secured", isOn: $buildViewModel.transportViewModel.isComputerSecuredChecked)
                         
  
                     } header: {
-                        Text("Step 22-24")
+                        Text("Step 25-27")
                     }
                     
                     
@@ -56,5 +54,5 @@ struct TransportView: View {
 
 
 #Preview {
-    TransportView()
+    TransportView(buildViewModel: BuildViewModel())
 }

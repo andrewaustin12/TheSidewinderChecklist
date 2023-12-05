@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct CounterlungView: View {
-    @State private var isCounterlungInHarnessChecked = false
-    @State private var isCounterlungOringsInspectedChecked = false
-    @State private var isCannistersAttachedChecked = false
+    @ObservedObject var buildViewModel: BuildViewModel
     
     
     var body: some View {
@@ -22,9 +20,9 @@ struct CounterlungView: View {
                 
                 Form {
                     Section {
-                        Toggle("Place counterlung in harness", isOn: $isCounterlungInHarnessChecked)
-                        Toggle("Inspect, clean, and lubricate Counterlung O-rings if necessary", isOn: $isCounterlungOringsInspectedChecked)
-                        Toggle("Attach cannisters to counterlung and harness attachment points", isOn: $isCannistersAttachedChecked)
+                        Toggle("Place counterlung in harness", isOn: $buildViewModel.counterlungViewModel.isCounterlungInHarnessChecked)
+                        Toggle("Inspect, clean, and lubricate Counterlung O-rings if necessary", isOn: $buildViewModel.counterlungViewModel.isCounterlungOringsInspectedChecked)
+                        Toggle("Attach cannisters to counterlung and harness attachment points", isOn: $buildViewModel.counterlungViewModel.isCannistersAttachedChecked)
                         
                     } header: {
                         Text("Steps 7-9")
@@ -32,7 +30,7 @@ struct CounterlungView: View {
                     
                 }
                 NavigationLink("Next") {
-                    LoopView()
+                    LoopView(buildViewModel: buildViewModel)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -53,5 +51,5 @@ struct CounterlungView: View {
 }
 
 #Preview {
-    CounterlungView()
+    CounterlungView(buildViewModel: BuildViewModel())
 }

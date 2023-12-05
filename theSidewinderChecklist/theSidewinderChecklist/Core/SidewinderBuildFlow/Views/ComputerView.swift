@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ComputerView: View {
-    @State private var isComputerBatteryGoodChecked = false
-    @State private var isLinearityCheckAirChecked = false
+    @ObservedObject var buildViewModel: BuildViewModel
     
     var body: some View {
         NavigationStack {
@@ -20,14 +19,14 @@ struct ComputerView: View {
                 
                 Form {
                     Section {
-                        Toggle("Turn on computer and verify the battery is above 1.25V", isOn: $isComputerBatteryGoodChecked)
+                        Toggle("Turn on computer and verify the battery is above 1.25V", isOn: $buildViewModel.computerViewModel.isComputerBatteryGoodChecked)
                         
                     } header: {
                         Text("Step 1")
                     }
                     
                     Section {
-                        Toggle("Record the millivolts from each of the cells  at ambient air (21%) in the linearty chart", isOn: $isLinearityCheckAirChecked)
+                        Toggle("Record the millivolts from each of the cells  at ambient air (21%) in the linearty chart", isOn: $buildViewModel.computerViewModel.isLinearityCheckAirChecked)
                     } header: {
                         Text("Step 2")
                     }
@@ -40,7 +39,7 @@ struct ComputerView: View {
                     }
                 }
                 NavigationLink("Next") {
-                    ScrubbersView()
+                    ScrubbersView(buildViewModel: buildViewModel)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -61,5 +60,5 @@ struct ComputerView: View {
 }
 
 #Preview {
-    ComputerView()
+    ComputerView(buildViewModel: BuildViewModel())
 }

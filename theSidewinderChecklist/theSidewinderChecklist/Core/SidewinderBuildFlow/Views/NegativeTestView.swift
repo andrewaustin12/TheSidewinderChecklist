@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NegativeTestView: View {
-    @State private var isNegativeTestCompletedChecked = false
+    @ObservedObject var buildViewModel: BuildViewModel
     @State private var selectedTime = 30
     @State private var referenceValue: String = ""
     
@@ -28,7 +28,7 @@ struct NegativeTestView: View {
                 
                 Form {
                     Section {
-                        Toggle("Perform Negative check", isOn: $isNegativeTestCompletedChecked)
+                        Toggle("Perform Negative check", isOn: $buildViewModel.negativeTestViewModel.isNegativeTestCompletedChecked)
             
                         Text("Note: \nThe millivolts should decend, stabilize and hold. Once they hold, pick a cell and record it as your Starting Reference Value. When timer is complete compare the final mV to your reference value.")
                             
@@ -57,7 +57,7 @@ struct NegativeTestView: View {
                     
                 }
                 NavigationLink("Next") {
-                    OxygenView()
+                    OxygenView(buildViewModel: buildViewModel)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -82,5 +82,5 @@ struct NegativeTestView: View {
 }
 
 #Preview {
-    NegativeTestView()
+    NegativeTestView(buildViewModel: BuildViewModel())
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CalibrateView: View {
+    
+    @ObservedObject var buildViewModel: BuildViewModel
     @State private var isComputerCalibratedChecked = false
 
     
@@ -27,7 +29,7 @@ struct CalibrateView: View {
                 
                 Form {
                     Section {
-                        Toggle("Calibrate O2 in computer if needed. Ensure ambient pressure in the loop first.(Optional)", isOn: $isComputerCalibratedChecked)
+                        Toggle("Calibrate O2 in computer if needed. Ensure ambient pressure in the loop first.(Optional)", isOn: $buildViewModel.calibrateViewModel.isComputerCalibratedChecked)
                         
  
                     } header: {
@@ -38,7 +40,7 @@ struct CalibrateView: View {
                     
                 }
                 NavigationLink("Next") {
-                    PositiveCheckView()
+                    PositiveCheckView(buildViewModel: buildViewModel)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -63,5 +65,5 @@ struct CalibrateView: View {
 }
 
 #Preview {
-    CalibrateView()
+    CalibrateView(buildViewModel: BuildViewModel())
 }

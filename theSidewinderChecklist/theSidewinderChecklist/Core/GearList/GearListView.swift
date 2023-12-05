@@ -66,6 +66,17 @@ struct GearListView: View {
                         DetailView(toDo: ToDo()) // new value
                     }
                 }
+                
+            }
+            .overlay {
+                if toDos.isEmpty {
+                    ContentUnavailableView(label: {
+                        Label("No Gear", systemImage: "list.bullet.rectangle.portrait")
+                    }, description: {
+                        Text("Start adding items to see your list.")
+                    })
+                    .offset(y: -60)
+                }
             }
         }
     }

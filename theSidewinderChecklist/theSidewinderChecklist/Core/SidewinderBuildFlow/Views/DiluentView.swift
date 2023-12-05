@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct DiluentView: View {
-    @State private var isDilBailPressureCheckChecked = false
-    @State private var isDilBailAnalyzedChecked = false
-    @State private var isComputerMixSetChecked = false
+    @ObservedObject var buildViewModel: BuildViewModel
     
     var body: some View {
         NavigationStack {
@@ -21,20 +19,20 @@ struct DiluentView: View {
                 
                 Form {
                     Section {
-                        Toggle("Pressure check diluent/bailout cylinders", isOn: $isDilBailPressureCheckChecked)
-                        Toggle("Analyze diluent/bailout cylinders", isOn: $isDilBailAnalyzedChecked)
-                        Toggle("Configure your computer mixes with your analyzed gases", isOn: $isComputerMixSetChecked)
+                        Toggle("Pressure check diluent/bailout cylinders", isOn: $buildViewModel.diluentViewModel.isDilBailPressureCheckChecked)
+                        Toggle("Analyze diluent/bailout cylinders", isOn: $buildViewModel.diluentViewModel.isDilBailAnalyzedChecked)
+                        Toggle("Configure your computer mixes with your analyzed gases", isOn: $buildViewModel.diluentViewModel.isComputerMixSetChecked)
                         
  
                     } header: {
-                        Text("Step 22-")
+                        Text("Step 22-24")
                     }
                     
                     
                     
                 }
                 NavigationLink("Next") {
-                    TransportView()
+                    TransportView(buildViewModel: buildViewModel)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -56,5 +54,5 @@ struct DiluentView: View {
 
 
 #Preview {
-    DiluentView()
+    DiluentView(buildViewModel: BuildViewModel())
 }
