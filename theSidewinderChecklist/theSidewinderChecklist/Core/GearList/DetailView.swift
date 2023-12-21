@@ -19,50 +19,45 @@ struct DetailView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                TextField("Enter Item here", text: $toDo.item)
-                    .font(.title)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(.vertical)
-                    .listRowSeparator(.hidden)
-                
-                Toggle("Set Reminder:", isOn: $toDo.reminderIsOn)
-                    .padding(.top)
-                    .listRowSeparator(.hidden)
-                
-                DatePicker("Date", selection: $selectedDate, in: Date()...)
-                    .listRowSeparator(.hidden)
-                    .padding(.bottom)
-                    .disabled(!toDo.reminderIsOn) // Disable the DatePicker when the reminder is off
-                    .onChange(of: selectedDate) {
-                        isDateChanged = true
-                    }
-                
-                Button("Schedule Notification") {
-                    if !isNotificationScheduled {
-                        notify.sendNotification(
-                            date: selectedDate,
-                            type: "date",
-                            title: "Reminder: \(toDo.item)",
-                            body: "\(toDo.notes)")
-                        isNotificationScheduled = true // Mark the notification as scheduled
+            Form {
+                Section {
+                    TextField("Enter Item here", text: $toDo.item)
+                        .font(.title)
+                    VStack {
+                        
+                        TextField("Leave a note if needed ", text: $toDo.notes, axis: .vertical)
                     }
                 }
-//                .tint(.accentColor)
-                .disabled(!toDo.reminderIsOn)
+
+                Section {
+                    Toggle("Set Reminder:", isOn: $toDo.reminderIsOn)
+                    
+                    DatePicker("Date", selection: $selectedDate, in: Date()...)
+                        .disabled(!toDo.reminderIsOn) // Disable the DatePicker when the reminder is off
+                        .onChange(of: selectedDate) {
+                            isDateChanged = true
+                        }
+                    
+                    Button("Schedule Notification") {
+                        if !isNotificationScheduled {
+                            notify.sendNotification(
+                                date: selectedDate,
+                                type: "date",
+                                title: "Reminder: \(toDo.item)",
+                                body: "\(toDo.notes)")
+                            isNotificationScheduled = true // Mark the notification as scheduled
+                        }
+                    }
+                    .disabled(!toDo.reminderIsOn)
+                }
+
+                Section {
+                    Toggle("Completed:", isOn: $toDo.isCompleted)
+                        .listRowSeparator(.hidden)
+                }
                 
-                Text("Notes:")
-                    .padding(.top)
-                TextField("Leave a note for your reminder", text: $toDo.notes, axis: .vertical)
-                    .textFieldStyle(.roundedBorder)
-                    .listRowSeparator(.hidden)
                 
-                Toggle("Completed:", isOn: $toDo.isCompleted)
-                    .padding(.top)
-                    .listRowSeparator(.hidden)
-                Spacer()
             }
-            .padding()
         }
         .listStyle(.plain)
         .toolbar {
@@ -90,7 +85,8 @@ struct DetailView: View {
 #Preview {
     NavigationStack {
         DetailView(toDo: ToDo())
-            .modelContainer(for: ToDo.self)
+            
     }
+    .modelContainer(for: ToDo.self)
 }
 

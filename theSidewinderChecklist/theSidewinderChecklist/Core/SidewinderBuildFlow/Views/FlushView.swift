@@ -36,7 +36,7 @@ struct FlushView: View {
                     }
                     
                     Section {
-                        Text("Linearity Chart here")
+                        LinearityCheckO2View(buildViewModel: buildViewModel)
                     } header: {
                         Text("Linearity Chart")
                     }

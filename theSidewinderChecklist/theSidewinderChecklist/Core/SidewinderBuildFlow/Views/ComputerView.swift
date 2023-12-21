@@ -32,8 +32,7 @@ struct ComputerView: View {
                     }
                     
                     Section {
-                        Text("Linearity chart here")
-                            .foregroundStyle(.unitPrimaryForeground)
+                        LinearityCheckAirView(buildViewModel: buildViewModel)
                     } header: {
                         Text("Linearity Chart")
                     }
@@ -62,3 +61,4 @@ struct ComputerView: View {
 #Preview {
     ComputerView(buildViewModel: BuildViewModel())
 }
+

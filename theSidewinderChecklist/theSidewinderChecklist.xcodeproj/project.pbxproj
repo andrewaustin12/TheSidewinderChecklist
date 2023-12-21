@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F223AB12B2B624100B34133 /* LinearityCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F223AB02B2B624100B34133 /* LinearityCheckView.swift */; };
+		3F223AB32B2CAFCC00B34133 /* LeanearityCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F223AB22B2CAFCC00B34133 /* LeanearityCheckViewModel.swift */; };
+		3F6985BF2B345C2D0010E1D4 /* LinearityCheckO2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6985BE2B345C2D0010E1D4 /* LinearityCheckO2View.swift */; };
+		3F6985C12B345CDA0010E1D4 /* LinearityCheckAirView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6985C02B345CDA0010E1D4 /* LinearityCheckAirView.swift */; };
+		3F7AF04C2B1F70160064971B /* WatchConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7AF04B2B1F70160064971B /* WatchConnector.swift */; };
+		3F7AF04E2B1F70F70064971B /* WatchConnectorToiOSConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7AF04D2B1F70F70064971B /* WatchConnectorToiOSConnector.swift */; };
 		3FA197C72B1739DF00B66CC0 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197C62B1739DF00B66CC0 /* NotificationHandler.swift */; };
 		3FA197CA2B173A3600B66CC0 /* SplashViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197C92B173A3600B66CC0 /* SplashViewModifier.swift */; };
 		3FA197CC2B173A5000B66CC0 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA197CB2B173A5000B66CC0 /* SplashView.swift */; };
@@ -73,6 +79,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F223AB02B2B624100B34133 /* LinearityCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearityCheckView.swift; sourceTree = "<group>"; };
+		3F223AB22B2CAFCC00B34133 /* LeanearityCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanearityCheckViewModel.swift; sourceTree = "<group>"; };
+		3F6985BE2B345C2D0010E1D4 /* LinearityCheckO2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearityCheckO2View.swift; sourceTree = "<group>"; };
+		3F6985C02B345CDA0010E1D4 /* LinearityCheckAirView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearityCheckAirView.swift; sourceTree = "<group>"; };
+		3F7AF04B2B1F70160064971B /* WatchConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnector.swift; sourceTree = "<group>"; };
+		3F7AF04D2B1F70F70064971B /* WatchConnectorToiOSConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectorToiOSConnector.swift; sourceTree = "<group>"; };
 		3FA197C62B1739DF00B66CC0 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		3FA197C92B173A3600B66CC0 /* SplashViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModifier.swift; sourceTree = "<group>"; };
 		3FA197CB2B173A5000B66CC0 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -133,6 +145,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F7AF04A2B1F70020064971B /* WatchConnector */ = {
+			isa = PBXGroup;
+			children = (
+				3F7AF04B2B1F70160064971B /* WatchConnector.swift */,
+			);
+			path = WatchConnector;
+			sourceTree = "<group>";
+		};
 		3FA197C42B1739A900B66CC0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +208,9 @@
 				3FA197D82B173C4900B66CC0 /* Headers */,
 				3FA197D72B173C4000B66CC0 /* Modifiers */,
 				3FA197D62B173C3C00B66CC0 /* ProgressBar */,
+				3F223AB02B2B624100B34133 /* LinearityCheckView.swift */,
+				3F6985BE2B345C2D0010E1D4 /* LinearityCheckO2View.swift */,
+				3F6985C02B345CDA0010E1D4 /* LinearityCheckAirView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -308,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				3FA198132B18864C00B66CC0 /* BuildViewModel.swift */,
+				3F223AB22B2CAFCC00B34133 /* LeanearityCheckViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -337,6 +361,7 @@
 				3FA197C82B173A1600B66CC0 /* SplashScreen */,
 				3FA197CD2B173ACA00B66CC0 /* Warning */,
 				3FA197D02B173B6800B66CC0 /* Core */,
+				3F7AF04A2B1F70020064971B /* WatchConnector */,
 				3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */,
 				3FF72A402B17356D004C2400 /* Assets.xcassets */,
 				3FF72A422B17356D004C2400 /* Preview Content */,
@@ -356,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				3FF72A4E2B17356D004C2400 /* theSidewinderChecklistApp.swift */,
+				3F7AF04D2B1F70F70064971B /* WatchConnectorToiOSConnector.swift */,
 				3FF72A502B17356D004C2400 /* ContentView.swift */,
 				3FF72A522B17356E004C2400 /* Assets.xcassets */,
 				3FF72A542B17356E004C2400 /* Preview Content */,
@@ -473,16 +499,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6985BF2B345C2D0010E1D4 /* LinearityCheckO2View.swift in Sources */,
 				3FA197FA2B175B4600B66CC0 /* testchart.swift in Sources */,
+				3F7AF04C2B1F70160064971B /* WatchConnector.swift in Sources */,
 				3FA197CA2B173A3600B66CC0 /* SplashViewModifier.swift in Sources */,
 				3FA197ED2B1746F700B66CC0 /* ToDo.swift in Sources */,
 				3FA197CC2B173A5000B66CC0 /* SplashView.swift in Sources */,
 				3FA198022B178A9A00B66CC0 /* NegativeTestView.swift in Sources */,
+				3F6985C12B345CDA0010E1D4 /* LinearityCheckAirView.swift in Sources */,
 				3FA197C72B1739DF00B66CC0 /* NotificationHandler.swift in Sources */,
 				3FA197E92B17469B00B66CC0 /* GearListView.swift in Sources */,
 				3FA198082B17A44C00B66CC0 /* FlushView.swift in Sources */,
 				3FA198062B17A20100B66CC0 /* OxygenView.swift in Sources */,
 				3FA197F42B17533900B66CC0 /* PrimaryButtonModifier.swift in Sources */,
+				3F223AB12B2B624100B34133 /* LinearityCheckView.swift in Sources */,
 				3FA1980E2B17AADC00B66CC0 /* DiluentView.swift in Sources */,
 				3FA198142B18864C00B66CC0 /* BuildViewModel.swift in Sources */,
 				3FF72A3D2B17356C004C2400 /* theSidewinderChecklistApp.swift in Sources */,
@@ -490,6 +520,7 @@
 				3FA197F62B1753B600B66CC0 /* ComputerView.swift in Sources */,
 				3FA197F22B1752FD00B66CC0 /* StartView.swift in Sources */,
 				3FA198122B17B56500B66CC0 /* SummaryView.swift in Sources */,
+				3F223AB32B2CAFCC00B34133 /* LeanearityCheckViewModel.swift in Sources */,
 				3FA198042B178ED000B66CC0 /* InlineTimer.swift in Sources */,
 				3FA198102B17B24500B66CC0 /* TransportView.swift in Sources */,
 				3FA197E12B173D2D00B66CC0 /* WarningHeaderView.swift in Sources */,
@@ -512,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F7AF04E2B1F70F70064971B /* WatchConnectorToiOSConnector.swift in Sources */,
 				3FF72A512B17356D004C2400 /* ContentView.swift in Sources */,
 				3FF72A4F2B17356D004C2400 /* theSidewinderChecklistApp.swift in Sources */,
 			);

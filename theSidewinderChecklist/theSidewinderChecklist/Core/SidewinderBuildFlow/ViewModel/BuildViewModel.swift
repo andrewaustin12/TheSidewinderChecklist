@@ -42,6 +42,13 @@ class BuildViewModel: ObservableObject {
     // Transport View Model
     @Published var transportViewModel = TransportViewModel()
     
+    // Linearity check View
+    @Published var linearityCheckViewModel = LinearityCheckViewModel()
+    
+//    @Published var linearityCheckO2ViewModel = LinearityCheckO2ViewModel()
+//    
+//    @Published var linearityCheckAirViewModel = LinearityCheckAirViewModel()
+    
     // Add a computed property to check if all steps are completed
     var areAllStepsCompleted: Bool {
         print("Debugging areAllStepsCompleted")
@@ -222,3 +229,23 @@ class TransportViewModel: ObservableObject {
     @Published var isO2closedChecked = false
     @Published var isComputerSecuredChecked = false
 }
+
+class LinearityCheckViewModel: ObservableObject {
+    @Published var mvAirValues = Array(repeating: "", count: 3)
+    @Published var mvO2Values = Array(repeating: "", count: 3)
+    @Published var mvResults = Array(repeating: "0.0", count: 3)
+    @Published var accuracyValues = Array(repeating: "0.0%", count: 3)
+}
+
+//class LinearityCheckAirViewModel: ObservableObject {
+//    @Published var mvAirValues = Array(repeating: "", count: 3)
+//    @Published var mvO2Values = Array(repeating: "", count: 3)
+//    @Published var mvResults = Array(repeating: "0.0", count: 3)
+//    @Published var accuracyValues = Array(repeating: "0.0%", count: 3)
+//}
+//class LinearityCheckO2ViewModel: ObservableObject {
+//    @Published var mvAirValues = Array(repeating: "", count: 3)
+//    @Published var mvO2Values = Array(repeating: "", count: 3)
+//    @Published var mvResults = Array(repeating: "0.0", count: 3)
+//    @Published var accuracyValues = Array(repeating: "0.0%", count: 3)
+//}
