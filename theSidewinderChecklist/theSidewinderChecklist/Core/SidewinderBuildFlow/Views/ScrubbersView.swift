@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ScrubbersView: View {
-    @ObservedObject var buildViewModel: BuildViewModel
-    
-    @State private var isStackTimeResetChecked = false
+    @State var build: Build
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         NavigationStack {
@@ -21,10 +20,10 @@ struct ScrubbersView: View {
                 
                 Form {
                     Section {
-                        Toggle("Fill and pack each cannister with sofnolime", isOn: $buildViewModel.scrubbersViewModel.isCannistersPackedChecked)
-                        Toggle("Inspect, clean, and lubricate Cannister O-rings if necessary", isOn: $buildViewModel.scrubbersViewModel.isCannistersOringsInspectedChecked)
-                        Toggle("Attach each cannister head ensuring proper tower alignment", isOn: $buildViewModel.scrubbersViewModel.isCannistersTowersAlignedChecked)
-                        Toggle("Reset stack time if needed", isOn: $isStackTimeResetChecked)
+                        Toggle("Fill and pack each cannister with sofnolime", isOn: $build.isCannistersPackedChecked)
+                        Toggle("Inspect, clean, and lubricate Cannister O-rings if necessary", isOn: $build.isCannistersOringsInspectedChecked)
+                        Toggle("Attach each cannister head ensuring proper tower alignment", isOn: $build.isCannistersTowersAlignedChecked)
+                        Toggle("Reset stack time if needed", isOn: $build.isStackTimeResetChecked)
                         
                     } header: {
                         Text("Steps 3-6")
@@ -32,7 +31,7 @@ struct ScrubbersView: View {
                     
                 }
                 NavigationLink("Next") {
-                    CounterlungView(buildViewModel: buildViewModel)
+                    CounterlungView(build: build)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -53,5 +52,8 @@ struct ScrubbersView: View {
 }
 
 #Preview {
-    ScrubbersView(buildViewModel: BuildViewModel())
+    NavigationStack {
+        ScrubbersView(build: Build())
+            .modelContainer(for: Build.self)
+    }
 }

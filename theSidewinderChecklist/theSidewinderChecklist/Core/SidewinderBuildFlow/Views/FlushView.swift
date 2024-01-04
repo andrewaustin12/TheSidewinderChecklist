@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct FlushView: View {
-    @ObservedObject var buildViewModel: BuildViewModel
+    @State var build: Build
+    @Environment(\.modelContext) var modelContext
     
     @State private var referenceValue: String = ""
     @FocusState private var focusedTextField: FormTextField?
@@ -27,23 +28,23 @@ struct FlushView: View {
                 
                 Form {
                     Section {
-                        Toggle("With DSV half open, flush the rebreather slowly with O2. Monitor the cells for smooth and even PO2 increases", isOn: $buildViewModel.flushViewModel.isDsvFlushedChecked)
+                        Toggle("With DSV half open, flush the rebreather slowly with O2. Monitor the cells for smooth and even PO2 increases", isOn: $build.isDsvFlushedChecked)
                         
-                        Toggle("Record the millivolts from each of the cells with oxygen (1.00) in the linearity chart", isOn: $buildViewModel.flushViewModel.isOxygenMvRecordedChecked)
+                        Toggle("Record the millivolts from each of the cells with oxygen (1.00) in the linearity chart", isOn: $build.isOxygenMvRecordedChecked)
  
                     } header: {
                         Text("Steps 18-19")
                     }
                     
                     Section {
-                        LinearityCheckO2View(buildViewModel: buildViewModel)
+                        LinearityCheckO2View(build: build)
                     } header: {
                         Text("Linearity Chart")
                     }
                     
                 }
                 NavigationLink("Next") {
-                    CalibrateView(buildViewModel: buildViewModel)
+                    CalibrateView(build: build)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -68,5 +69,8 @@ struct FlushView: View {
 }
 
 #Preview {
-    FlushView(buildViewModel: BuildViewModel())
+    NavigationStack {
+        FlushView(build: Build())
+            .modelContainer(for: Build.self)
+    }
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PositiveCheckView: View {
-    @ObservedObject var buildViewModel: BuildViewModel
+    @State var build: Build
+    @Environment(\.modelContext) var modelContext
     @State private var selectedTime = 30
     @State private var referenceValue: String = ""
     
@@ -28,7 +29,7 @@ struct PositiveCheckView: View {
                 
                 Form {
                     Section {
-                        Toggle("Perform Positive check", isOn: $buildViewModel.positiveTestViewModel.isPosTestCompleteChecked)
+                        Toggle("Perform Positive check", isOn: $build.isPosTestCompleteChecked)
             
                         Text("Note: \nWith DSV and OPV closed, fill rebreather with O2. The millivolts should increase, stabilize and hold.")
                         Text("Once stabilized pick one cell and record its mV value as a Starting Reference Value below.")
@@ -60,7 +61,7 @@ struct PositiveCheckView: View {
                     
                 }
                 NavigationLink("Next") {
-                    DiluentView(buildViewModel: buildViewModel)
+                    DiluentView(build: build)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -85,5 +86,8 @@ struct PositiveCheckView: View {
 }
 
 #Preview {
-    PositiveCheckView(buildViewModel: BuildViewModel())
+    NavigationStack {
+        PositiveCheckView(build: Build())
+            .modelContainer(for: Build.self)
+    }
 }

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CalibrateView: View {
     
-    @ObservedObject var buildViewModel: BuildViewModel
-    @State private var isComputerCalibratedChecked = false
+    @State var build: Build
+    @Environment(\.modelContext) var modelContext
 
     
     @FocusState private var focusedTextField: FormTextField?
@@ -29,7 +29,7 @@ struct CalibrateView: View {
                 
                 Form {
                     Section {
-                        Toggle("Calibrate O2 in computer if needed. Ensure ambient pressure in the loop first.(Optional)", isOn: $buildViewModel.calibrateViewModel.isComputerCalibratedChecked)
+                        Toggle("Calibrate O2 in computer if needed. Ensure ambient pressure in the loop first.(Optional)", isOn: $build.isComputerCalibratedChecked)
                         
  
                     } header: {
@@ -40,7 +40,7 @@ struct CalibrateView: View {
                     
                 }
                 NavigationLink("Next") {
-                    PositiveCheckView(buildViewModel: buildViewModel)
+                    PositiveCheckView(build: build)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -65,5 +65,8 @@ struct CalibrateView: View {
 }
 
 #Preview {
-    CalibrateView(buildViewModel: BuildViewModel())
+    NavigationStack {
+        CalibrateView(build: Build())
+            .modelContainer(for: Build.self)
+    }
 }

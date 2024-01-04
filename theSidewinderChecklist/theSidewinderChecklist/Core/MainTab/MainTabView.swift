@@ -29,7 +29,7 @@ struct MainTabView: View {
                     Image(systemName: "list.dash")
                     Text("Gear")
                 }.tag(1)
-            Text("Dive Planning")
+            Text("dive planning")
                 .onAppear{
                     selectedIndex = 2
                 }
@@ -37,7 +37,7 @@ struct MainTabView: View {
                     Image(systemName: "pencil.and.list.clipboard")
                     Text("Planning")
                 }.tag(2)
-            Text("Build Logs")
+            BuildLogsView()
                 .onAppear{
                     selectedIndex = 3
                 }

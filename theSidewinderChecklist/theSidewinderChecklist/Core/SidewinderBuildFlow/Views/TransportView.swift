@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TransportView: View {
-    @ObservedObject var buildViewModel: BuildViewModel
+    @State var build: Build
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         NavigationStack {
@@ -19,9 +20,9 @@ struct TransportView: View {
                 
                 Form {
                     Section {
-                        Toggle("DSV is closed", isOn: $buildViewModel.transportViewModel.isDsvClosedChecked)
-                        Toggle("Insure O2 cylinder is still closed", isOn: $buildViewModel.transportViewModel.isO2closedChecked)
-                        Toggle("Computer is clipped and secured", isOn: $buildViewModel.transportViewModel.isComputerSecuredChecked)
+                        Toggle("DSV is closed", isOn: $build.isDsvClosedChecked)
+                        Toggle("Insure O2 cylinder is still closed", isOn: $build.isO2closedChecked)
+                        Toggle("Computer is clipped and secured", isOn: $build.isComputerSecuredChecked)
                         
  
                     } header: {
@@ -32,7 +33,7 @@ struct TransportView: View {
                     
                 }
                 NavigationLink("Next") {
-                    SummaryView()
+                    SummaryView(build: build)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -54,5 +55,8 @@ struct TransportView: View {
 
 
 #Preview {
-    TransportView(buildViewModel: BuildViewModel())
+    NavigationStack {
+        TransportView(build: Build())
+            .modelContainer(for: Build.self)
+    }
 }

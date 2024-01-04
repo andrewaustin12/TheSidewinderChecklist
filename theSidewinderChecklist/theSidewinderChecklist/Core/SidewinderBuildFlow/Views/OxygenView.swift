@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct OxygenView: View {
-    @ObservedObject var buildViewModel: BuildViewModel
+    @State var build: Build
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         NavigationStack {
@@ -19,9 +20,9 @@ struct OxygenView: View {
                 
                 Form {
                     Section {
-                        Toggle("Check the pressure of the O2 cylinder", isOn: $buildViewModel.oxygenViewModel.isOxygenTankPressureChecked)
-                        Toggle("Analyze content of O2 cylinder", isOn: $buildViewModel.oxygenViewModel.isOxygenTankAnalyzedChecked)
-                        Toggle("Attach cyclinder to harness ensuring correct valve orientation", isOn: $buildViewModel.oxygenViewModel.isOxygenTankAttachedChecked)
+                        Toggle("Check the pressure of the O2 cylinder", isOn: $build.isOxygenTankPressureChecked)
+                        Toggle("Analyze content of O2 cylinder", isOn: $build.isOxygenTankAnalyzedChecked)
+                        Toggle("Attach cyclinder to harness ensuring correct valve orientation", isOn: $build.isOxygenTankAttachedChecked)
 
                         
                     } header: {
@@ -30,7 +31,7 @@ struct OxygenView: View {
                     
                 }
                 NavigationLink("Next") {
-                    FlushView(buildViewModel: buildViewModel)
+                    FlushView(build: build)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -51,5 +52,8 @@ struct OxygenView: View {
 }
 
 #Preview {
-    OxygenView(buildViewModel: BuildViewModel())
+    NavigationStack {
+        OxygenView(build: Build())
+            .modelContainer(for: Build.self)
+    }
 }

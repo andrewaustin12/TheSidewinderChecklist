@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LoopView: View {
-    @ObservedObject var buildViewModel: BuildViewModel
+    @State var build: Build
+    @Environment(\.modelContext) var modelContext
     
     
     var body: some View {
@@ -20,10 +21,10 @@ struct LoopView: View {
                 
                 Form {
                     Section {
-                        Toggle("Inspect mouthpiece for holes or tears", isOn: $buildViewModel.loopViewModel.isMouthpieceInspectedChecked)
-                        Toggle("Perform mushroom valve check", isOn: $buildViewModel.loopViewModel.isMushroomValveTestedChecked)
-                        Toggle("Inspect, clean and lubricate loop o-rings as needed", isOn: $buildViewModel.loopViewModel.isLoopOringsInspectedChecked)
-                        Toggle("Attach loop to towers ensuring correct alignment of DSV", isOn: $buildViewModel.loopViewModel.isLoopAttachedChecked)
+                        Toggle("Inspect mouthpiece for holes or tears", isOn: $build.isMouthpieceInspectedChecked)
+                        Toggle("Perform mushroom valve check", isOn: $build.isMushroomValveTestedChecked)
+                        Toggle("Inspect, clean and lubricate loop o-rings as needed", isOn: $build.isLoopOringsInspectedChecked)
+                        Toggle("Attach loop to towers ensuring correct alignment of DSV", isOn: $build.isLoopAttachedChecked)
                         
                     } header: {
                         Text("Steps 10-13")
@@ -31,7 +32,7 @@ struct LoopView: View {
                     
                 }
                 NavigationLink("Next") {
-                    NegativeTestView(buildViewModel: BuildViewModel())
+                    NegativeTestView(build: build)
                 }
                 .modifier(PrimaryButtonModifier())
                 .foregroundColor(.white)
@@ -52,5 +53,8 @@ struct LoopView: View {
 }
 
 #Preview {
-    LoopView(buildViewModel: BuildViewModel())
+    NavigationStack {
+        LoopView(build: Build())
+            .modelContainer(for: Build.self)
+    }
 }

@@ -9,10 +9,10 @@
 //
 //struct LinearityCheckView: View {
 //    @ObservedObject var buildViewModel: BuildViewModel
-////    @State private var mvAirValues = Array(repeating: "", count: 3)
-////    @State private var mvO2Values = Array(repeating: "", count: 3)
-////    @State private var mvResults = Array(repeating: "0.0", count: 3)
-////    @State private var accuracyValues = Array(repeating: "0.0%", count: 3)
+//    @State private var mvAirValues = Array(repeating: "", count: 3)
+//    @State private var mvO2Values = Array(repeating: "", count: 3)
+//    @State private var mvResults = Array(repeating: "0.0", count: 3)
+//    @State private var accuracyValues = Array(repeating: "0.0%", count: 3)
 //    @State private var selectedDivisorIndex: Int
 //    
 //    let divisors: [Double]
