@@ -10,6 +10,7 @@ import SwiftUI
 struct ComputerView: View {
     @State var build: Build
     @Environment(\.modelContext) var modelContext
+   
     
     var body: some View {
         NavigationStack {

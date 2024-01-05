@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F223AB12B2B624100B34133 /* LinearityCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F223AB02B2B624100B34133 /* LinearityCheckView.swift */; };
-		3F223AB32B2CAFCC00B34133 /* LeanearityCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F223AB22B2CAFCC00B34133 /* LeanearityCheckViewModel.swift */; };
 		3F53E9BF2B46FFFE00E821BC /* SummaryCellAirReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F53E9BE2B46FFFE00E821BC /* SummaryCellAirReading.swift */; };
 		3F53E9C12B47069A00E821BC /* SummaryCellO2Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F53E9C02B47069A00E821BC /* SummaryCellO2Reading.swift */; };
 		3F600A942B40AE73006A4AED /* DivePlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F600A932B40AE73006A4AED /* DivePlanningView.swift */; };
@@ -85,7 +84,6 @@
 
 /* Begin PBXFileReference section */
 		3F223AB02B2B624100B34133 /* LinearityCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearityCheckView.swift; sourceTree = "<group>"; };
-		3F223AB22B2CAFCC00B34133 /* LeanearityCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanearityCheckViewModel.swift; sourceTree = "<group>"; };
 		3F53E9BE2B46FFFE00E821BC /* SummaryCellAirReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCellAirReading.swift; sourceTree = "<group>"; };
 		3F53E9C02B47069A00E821BC /* SummaryCellO2Reading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCellO2Reading.swift; sourceTree = "<group>"; };
 		3F600A932B40AE73006A4AED /* DivePlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivePlanningView.swift; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				3FA198132B18864C00B66CC0 /* BuildViewModel.swift */,
-				3F223AB22B2CAFCC00B34133 /* LeanearityCheckViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -564,7 +561,6 @@
 				3F600AA02B42E0C2006A4AED /* SummaryCard.swift in Sources */,
 				3FA197F22B1752FD00B66CC0 /* StartView.swift in Sources */,
 				3FA198122B17B56500B66CC0 /* SummaryView.swift in Sources */,
-				3F223AB32B2CAFCC00B34133 /* LeanearityCheckViewModel.swift in Sources */,
 				3FA198042B178ED000B66CC0 /* InlineTimer.swift in Sources */,
 				3FA198102B17B24500B66CC0 /* TransportView.swift in Sources */,
 				3FA197E12B173D2D00B66CC0 /* WarningHeaderView.swift in Sources */,

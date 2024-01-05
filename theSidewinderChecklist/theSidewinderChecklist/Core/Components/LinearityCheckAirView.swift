@@ -10,10 +10,14 @@ import SwiftUI
 struct LinearityCheckAirView: View {
     @State var build: Build
     @Environment(\.modelContext) var modelContext
-//    @State private var mvAirValues = Array(repeating: "", count: 3)
-//    @State private var mvResults = Array(repeating: "0.0", count: 3)
     @State var selectedDivisorIndex: Int
     let divisors: [Double]
+    
+    @FocusState private var focusedTextField: FormTextField?
+    
+    enum FormTextField {
+        case mvAirValues
+    }
 
     init(build: Build) {
         
@@ -45,6 +49,8 @@ struct LinearityCheckAirView: View {
                     Text("mV@Air")
                     ForEach(0..<3, id: \.self) { index in
                         TextField("0.0 mV", text: $build.mvAirValues[index])
+                            .focused($focusedTextField, equals: .mvAirValues)
+                            .onSubmit { focusedTextField = nil }
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .frame(width: 60, height: 30)
                             .keyboardType(.decimalPad)
@@ -98,9 +104,16 @@ struct LinearityCheckAirView: View {
                 }
             }
             .font(.system(size: 14))
+            
         }
-
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Dismiss") { focusedTextField = nil }
+            }
+        }
     }
+    
 
     private func calculateResult(for index: Int) {
         if let value = Double(build.mvAirValues[index]), value != 0 {

@@ -24,13 +24,16 @@ struct LinearityCheckO2View: View {
     
     let divisors: [Double]
     
+    @FocusState private var focusedTextField: FormTextField?
+    
+    enum FormTextField {
+        case mvO2Values
+    }
+    
     init(build: Build) {
         self.build = build
         self.divisors = Array(stride(from: 0.04, through: 0.50, by: 0.01))
         self.selectedDivisorIndex = self.divisors.firstIndex(of: 0.21) ?? 0
-
-        
-        
     }
 
     
@@ -83,6 +86,8 @@ struct LinearityCheckO2View: View {
                     ForEach(0..<3, id: \.self) { index in
                         
                         TextField("0.0 mV", text: $build.mvO2Values[index])
+                            .focused($focusedTextField, equals: .mvO2Values)
+                            .onSubmit { focusedTextField = nil }
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .frame(width: 60, height: 30)
                             .keyboardType(.decimalPad)
@@ -106,6 +111,12 @@ struct LinearityCheckO2View: View {
                 }
             }
             .font(.system(size: 14))
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Dismiss") { focusedTextField = nil }
+            }
         }
     }
     
