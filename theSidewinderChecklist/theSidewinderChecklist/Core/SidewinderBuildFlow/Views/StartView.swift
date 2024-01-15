@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct StartView: View {
-    //@StateObject var buildViewModel = BuildViewModel()
+    
     @Environment(\.modelContext) var modelContext
     
     var body: some View {

@@ -28,7 +28,7 @@ struct SettingsView: View {
                         TwitterLink()
                 
                     }
-                    Text("Version 1.0")
+                    Text("Version 1.2")
                     InstagramLink()
                 }
                 

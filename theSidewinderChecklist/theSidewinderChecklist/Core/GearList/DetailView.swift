@@ -16,6 +16,7 @@ struct DetailView: View {
     @State private var selectedDate = Date()
     @State private var isNotificationScheduled = false // Flag to track whether a notification is scheduled
     @State private var isDateChanged = false // Flag to track if the date is changed
+    @State private var showAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -46,7 +47,15 @@ struct DetailView: View {
                                 title: "Reminder: \(toDo.item)",
                                 body: "\(toDo.notes)")
                             isNotificationScheduled = true // Mark the notification as scheduled
+                            showAlert = true // Trigger the alert
                         }
+                    }
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Notification Scheduled"),
+                            message: Text("Your notification for this item has been scheduled."),
+                            dismissButton: .default(Text("OK"))
+                        )
                     }
                     .disabled(!toDo.reminderIsOn)
                 }

@@ -58,10 +58,6 @@ struct FlushView: View {
                             Image(systemName: "house")
                         }
                     }
-                    ToolbarItemGroup(placement: .keyboard) {
-                        Spacer()
-                        Button("Dismiss") { focusedTextField = nil }
-                    }
                 }
             }
         }

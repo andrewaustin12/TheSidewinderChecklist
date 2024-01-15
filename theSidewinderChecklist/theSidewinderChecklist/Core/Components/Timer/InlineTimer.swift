@@ -50,7 +50,9 @@ struct InlineTimer: View {
             
             if isTimerRunning {
                 VStack {
-                    Text("Time Remaining: \(formattedTime)")
+                    Text("Time Remaining: ")
+                        .font(.title)
+                    Text("\(formattedTime)")
                         .font(.title)
                         .overlay(
                             Button(action: {}) {

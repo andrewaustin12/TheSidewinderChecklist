@@ -11,16 +11,24 @@ import SwiftData
 @main
 struct theSidewinderChecklistApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
+    let container: ModelContainer
+    
     var body: some Scene {
         WindowGroup {
             WarningView()
-                .modelContainer(for: [
-                    ToDo.self,
-                    Build.self
-                ])
+                .modelContainer(container)
 
         }
+    }
+    init() {
+        let schema = Schema([Build.self, ToDo.self])
+        let config = ModelConfiguration("SidewinderChecklist", schema: schema)
+        do {
+            container = try ModelContainer(for: schema, configurations: config)
+        } catch {
+            fatalError("Could not configure the container")
+        }
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
     }
 }
 
@@ -36,4 +44,5 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         completionHandler([.banner, .sound])
     }
 }
+
 

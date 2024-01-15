@@ -24,13 +24,16 @@ struct LinearityCheckO2View: View {
     
     let divisors: [Double]
     
+    @FocusState private var focusedTextField: FormTextField?
+    
+    enum FormTextField {
+        case mvO2Values
+    }
+    
     init(build: Build) {
         self.build = build
         self.divisors = Array(stride(from: 0.04, through: 0.50, by: 0.01))
         self.selectedDivisorIndex = self.divisors.firstIndex(of: 0.21) ?? 0
-
-        
-        
     }
 
     
@@ -51,7 +54,7 @@ struct LinearityCheckO2View: View {
                 VStack {
                     Text("mV@Air")
                     ForEach(0..<3, id: \.self) { index in
-                        Text(build.mvAirValues[index])
+                        Text(String(format: "%.2f", build.mvAirValues[index]))
                             .frame(width: 60, height: 30)
                     }
                 }
@@ -71,7 +74,7 @@ struct LinearityCheckO2View: View {
                     }
                     
                     ForEach(build.mvResults.indices, id: \.self) { index in
-                        Text(build.mvResults[index])
+                        Text(String(format: "%.2f", build.mvResults[index])) // Format to display two decimal places
                             .frame(height: 30)
                     }
                 }
@@ -82,13 +85,19 @@ struct LinearityCheckO2View: View {
                     Text("mV@O2")
                     ForEach(0..<3, id: \.self) { index in
                         
-                        TextField("0.0 mV", text: $build.mvO2Values[index])
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .frame(width: 60, height: 30)
-                            .keyboardType(.decimalPad)
-                            .onChange(of: build.mvO2Values[index]) {
-                                calculateResult(for: index)
-                            }
+                        TextField("", value: $build.mvO2Values[index],formatter: {
+                            let formatter = NumberFormatter()
+                            formatter.maximumFractionDigits = 2 // or a higher number
+                            return formatter
+                        }())
+                        .focused($focusedTextField, equals: .mvO2Values)
+                        .onSubmit {focusedTextField = nil}
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .frame(width: 60, height: 30)
+                        .keyboardType(.decimalPad)
+                        .onChange(of: build.mvO2Values[index]) {
+                            calculateResult(for: index)
+                        }
                         
                     }
                 }
@@ -99,7 +108,7 @@ struct LinearityCheckO2View: View {
                 VStack {
                     Text("Accuracy")
                     ForEach(0..<3, id: \.self) { index in
-                        Text(build.accuracyValues[index])
+                        Text(String(format: "%.2f", build.accuracyValues[index]))
                             .frame(height: 30)
                             .bold()
                     }
@@ -107,25 +116,32 @@ struct LinearityCheckO2View: View {
             }
             .font(.system(size: 14))
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Dismiss") { focusedTextField = nil }
+            }
+        }
     }
     
     func calculateResult(for index: Int) {
-        if let value = Double(build.mvAirValues[index]), value != 0 {
-            build.mvResults[index] = String(format: "%.2f", value / divisors[selectedDivisorIndex])
-        } else {
-            build.mvResults[index] = "0.0"
-        }
+        let value = build.mvAirValues[index]
+        build.mvResults[index] = value / divisors[selectedDivisorIndex]
         calculateAccuracy(for: index)
     }
 
     func calculateAccuracy(for index: Int) {
-        if let o2Value = Double(build.mvO2Values[index]), let resultValue = Double(build.mvResults[index]), resultValue != 0 {
-            let accuracy = o2Value / resultValue
-            build.accuracyValues[index] = String(format: "%.1f%%", accuracy * 100)
+        let o2Value = build.mvO2Values[index]
+        let resultValue = build.mvResults[index]
+        
+        if resultValue != 0 {
+            let accuracy = o2Value / resultValue * 100 // accuracy as a percentage
+            build.accuracyValues[index] = accuracy
         } else {
-            build.accuracyValues[index] = "N/A"
+            build.accuracyValues[index] = 0.0 // or some default value if you don't want to use optional
         }
     }
+
 
     func calculateAllResults() {
         for index in build.mvAirValues.indices {

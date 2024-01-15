@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
     @State private var selectedIndex = 0
+
     
     var body: some View {
         TabView(selection: $selectedIndex) {
@@ -29,34 +30,26 @@ struct MainTabView: View {
                     Image(systemName: "list.dash")
                     Text("Gear")
                 }.tag(1)
-            Text("dive planning")
+            BuildLogsView()
                 .onAppear{
                     selectedIndex = 2
                 }
                 .tabItem{
-                    Image(systemName: "pencil.and.list.clipboard")
-                    Text("Planning")
+                    Image(systemName: "list.bullet.clipboard")
+                    Text("History")
                 }.tag(2)
-            BuildLogsView()
+            SettingsView()
                 .onAppear{
                     selectedIndex = 3
                 }
                 .tabItem{
-                    Image(systemName: "tray")
-                    Text("Logs")
-                }.tag(3)
-            SettingsView()
-                .onAppear{
-                    selectedIndex = 4
-                }
-                .tabItem{
                     Image(systemName: "gear")
                     Text("Settings")
-                }.tag(4)
+                }.tag(3)
+            
             
         }
         .navigationBarBackButtonHidden(true)
-//        .accentColor(.unitPrimaryForeground)
     }
 }
 

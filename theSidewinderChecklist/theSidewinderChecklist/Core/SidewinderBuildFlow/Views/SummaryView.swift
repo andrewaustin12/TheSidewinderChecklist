@@ -10,6 +10,7 @@ import SwiftUI
 struct SummaryView: View {
     @State var build: Build
     @Environment(\.modelContext) var modelContext
+    @State private var navigateToMain = false // State variable for navigation
     
     var body: some View {
         
@@ -19,25 +20,16 @@ struct SummaryView: View {
                     .padding(.top)
                     .padding(.bottom)
                 
-                ScrollView {
-                    Text("Summary of Build")
-                        .font(.largeTitle)
-                    
-                    
-                    SummaryCellAirReading(title: "mV Reading w/ Air",
-                                          cell1: build.mvAirValues[0],
-                                          cell2: build.mvAirValues[1],
-                                          cell3: build.mvAirValues[2]
-                    )
-                    SummaryCellO2Card(title: "mV Reading w/ Oxygen",
-                                      cell1: build.mvO2Values[0],
-                                      cell2: build.mvO2Values[1],
-                                      cell3: build.mvO2Values[2]
-                    )
-                    
-                    
-                    
-                }
+                Text(NSLocalizedString("Sidewinder Checklist Complete", comment: ""))
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                
+                Image("celebration")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 400, height: 400)
+                    .font(.system(size: 200))
+                
                 
                 
             } else {
@@ -54,11 +46,9 @@ struct SummaryView: View {
                 }
             }
         }
-        NavigationLink("Finish") {
-            MainTabView()
-        }
-        .onTapGesture {
-            modelContext.insert(build)
+        Button("Finish") {
+            addBuildToHistory()
+            navigateToMain = true // Set to navigate
         }
         .font(.title)
         .bold()
@@ -74,7 +64,16 @@ struct SummaryView: View {
                 }
             }
         }
+        .navigationDestination(isPresented: $navigateToMain) {
+            MainTabView() // Destination view
+        }
     }
+    
+    func addBuildToHistory() {
+        modelContext.insert(build)
+        print("Build inserted into history")
+    }
+    
 }
 
 #Preview {
