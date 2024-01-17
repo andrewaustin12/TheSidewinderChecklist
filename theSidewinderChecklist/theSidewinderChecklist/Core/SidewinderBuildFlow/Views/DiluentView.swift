@@ -26,7 +26,7 @@ struct DiluentView: View {
                         
  
                     } header: {
-                        Text("Step 22-24")
+                        Text("Step 23-25")
                     }
                     
                     

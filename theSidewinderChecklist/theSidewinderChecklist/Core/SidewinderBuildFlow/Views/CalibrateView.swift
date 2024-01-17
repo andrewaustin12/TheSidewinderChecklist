@@ -33,7 +33,7 @@ struct CalibrateView: View {
                         
  
                     } header: {
-                        Text("Step 20")
+                        Text("Step 21")
                     }
                     
                     

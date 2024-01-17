@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        VStack{
+        NavigationStack {
             
             
             List {
@@ -24,17 +24,77 @@ struct SettingsView: View {
                 
                 Section("Developer") {
                     HStack{
-                        Text("Made by: ")
+                        Label("Made by:", systemImage: "person")
                         TwitterLink()
-                
                     }
-                    Text("Version 1.2")
-                    InstagramLink()
+                    NavigationLink(destination: BuyMeACoffeeView()) {
+                        Label("Buy me a coffee", systemImage: "mug.fill")
+                    }
+                    
+                    
+                    
                 }
                 
-                Section("Help") {
-                    RequestFeatures()
-                    GiveFeedback()
+                Section("Support") {
+                    Label("Version 1.2", systemImage: "apps.iphone")
+                    
+                    Label {
+                        HStack {
+                            Text("Feature Request")
+                            Spacer() // This will push the text and icon to opposite ends
+                            Image(systemName: "link") // The link icon
+                                .foregroundColor(.blue)
+                        }
+                    } icon: {
+                        Image(systemName: "lightbulb.min")
+                            
+                    }
+                    .onTapGesture {
+                        openMail()
+                    }
+                    Label {
+                        HStack {
+                            Text("Give Feedback")
+                            Spacer() // This will push the text and icon to opposite ends
+                            Image(systemName: "link") // The link icon
+                                .foregroundColor(.blue)
+                        }
+                    } icon: {
+                        Image(systemName: "envelope")
+                            
+                    }
+                    .onTapGesture {
+                        openMail()
+                    }
+                    
+                    Label {
+                        HStack {
+                            Text("Follow on Instagram")
+                            Spacer() // This will push the text and icon to opposite ends
+                            Image(systemName: "link") // The link icon
+                                .foregroundColor(.blue)
+                        }
+                    } icon: {
+                        Image(systemName: "person.2")
+                            
+                    }
+                    .onTapGesture {
+                        openInstagramProfile()
+                    }
+                    Label {
+                        HStack {
+                            Text("Visit the website")
+                            Spacer() // This will push the text and icon to opposite ends
+                            Image(systemName: "link") // The link icon
+                                .foregroundColor(.blue)
+                        }
+                    } icon: {
+                        Image(systemName: "macbook")
+                            
+                    }
+                    .onTapGesture {
+                        openWebsite()
+                    }
                     
                 }
             }
@@ -44,25 +104,6 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
-}
-
-struct InstagramLink: View {
-    var body: some View {
-        Button(action: {
-            let userName = "theccrchecklists" // Replace with your Instagram username
-            if let url = URL(string: "instagram://user?username=\(userName)") {
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                } else {
-                    // If Instagram app is not installed, open Instagram website in Safari
-                    let webURL = URL(string: "https://www.instagram.com/\(userName)")!
-                    UIApplication.shared.open(webURL)
-                }
-            }
-        }) {
-            Text("Follow us on Instagram")
-        }
-    }
 }
 
 struct TwitterLink: View {
@@ -78,50 +119,37 @@ struct TwitterLink: View {
     }
 }
 
-struct RequestFeatures: View {
-    var body: some View {
-        Button("Request Features") {
-            let email = "theccrchecklists@yahoo.com"
-            if let url = URL(string: "mailto:\(email)") {
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url)
-                } else {
-                    UIApplication.shared.openURL(url)
-                }
-            }
-        }
-    }
-    
-    func openMail() {
-        let url = URL(string: "message://")
-        if let url = url {
-            if UIApplication.shared.canOpenURL(url) {
+/// Support Section
+
+func openMail() {
+    let email = "theccrchecklists@yahoo.com"
+    if let url = URL(string: "mailto:\(email)") {
+        if UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10.0, *) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
             }
         }
     }
 }
 
-struct GiveFeedback: View {
-    var body: some View {
-        Button("Give Feedback") {
-            let email = "theccrchecklists@yahoo.com"
-            if let url = URL(string: "mailto:\(email)") {
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url)
-                } else {
-                    UIApplication.shared.openURL(url)
-                }
-            }
+
+func openInstagramProfile() {
+    let userName = "theccrchecklists" // Replace with your Instagram username
+    if let url = URL(string: "instagram://user?username=\(userName)"),
+       UIApplication.shared.canOpenURL(url) {
+        UIApplication.shared.open(url)
+    } else {
+        // If Instagram app is not installed, open Instagram website in Safari
+        if let webURL = URL(string: "https://www.instagram.com/\(userName)") {
+            UIApplication.shared.open(webURL)
         }
     }
-    
-    func openMail() {
-        let url = URL(string: "message://")
-        if let url = url {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        }
-    }
+}
+
+
+func openWebsite() {
+    let websiteURL = URL(string: "https://theccrchecklists.wixsite.com/theccrchecklists")!
+    UIApplication.shared.open(websiteURL)
 }

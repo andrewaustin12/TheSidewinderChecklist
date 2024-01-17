@@ -27,13 +27,24 @@ struct FlushView: View {
                     .padding(.leading)
                 
                 Form {
+                    
                     Section {
+                        Toggle("When you open the oxygen bottle look, listen and feel for the oxygen flowing from the CMF.", isOn: $build.isCmfChecked)
+                        Text("Ex: \nOpen the oxygen then close it and wait to see if the O2 SPG goes down. This can indicate the cmf is flowing.")
+                            .font(.footnote)
+                            .foregroundStyle(.unitPrimaryForeground)
+                    } header: {
+                        Text("Step 18")
+                    }
+                    
+                    Section {
+                        
                         Toggle("With DSV half open, flush the rebreather slowly with O2. Monitor the cells for smooth and even PO2 increases", isOn: $build.isDsvFlushedChecked)
                         
-                        Toggle("Record the millivolts from each of the cells with oxygen (1.00) in the linearity chart", isOn: $build.isOxygenMvRecordedChecked)
+                        Toggle("Record the millivolts from each of the cells with oxygen (.98) in the linearity chart", isOn: $build.isOxygenMvRecordedChecked)
  
                     } header: {
-                        Text("Steps 18-19")
+                        Text("Steps 19-20")
                     }
                     
                     Section {

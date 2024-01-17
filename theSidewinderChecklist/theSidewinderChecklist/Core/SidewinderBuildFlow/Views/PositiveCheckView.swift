@@ -39,7 +39,7 @@ struct PositiveCheckView: View {
                         
                         
                     } header: {
-                        Text("Step 21")
+                        Text("Step 22")
                     }
                     
                     Section {

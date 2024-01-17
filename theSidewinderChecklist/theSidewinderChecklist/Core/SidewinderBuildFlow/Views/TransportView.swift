@@ -26,7 +26,7 @@ struct TransportView: View {
                         
  
                     } header: {
-                        Text("Step 25-27")
+                        Text("Step 26-28")
                     }
                     
                     

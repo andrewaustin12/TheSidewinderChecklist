@@ -45,6 +45,20 @@
 		3FA198102B17B24500B66CC0 /* TransportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1980F2B17B24500B66CC0 /* TransportView.swift */; };
 		3FA198122B17B56500B66CC0 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA198112B17B56500B66CC0 /* SummaryView.swift */; };
 		3FA198142B18864C00B66CC0 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA198132B18864C00B66CC0 /* Build.swift */; };
+		3FDB89B52B553BCD00DF0C51 /* BuyMeACoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89B42B553BCD00DF0C51 /* BuyMeACoffeeView.swift */; };
+		3FDB89B72B553F6700DF0C51 /* Coffee_Shop_Cup.scn in Resources */ = {isa = PBXBuildFile; fileRef = 3FDB89B62B553F6700DF0C51 /* Coffee_Shop_Cup.scn */; };
+		3FDB89B92B553FA700DF0C51 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89B82B553FA700DF0C51 /* SceneView.swift */; };
+		3FDB89BC2B5556B300DF0C51 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 3FDB89BB2B5556B300DF0C51 /* RevenueCat */; };
+		3FDB89BE2B5556B300DF0C51 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3FDB89BD2B5556B300DF0C51 /* RevenueCatUI */; };
+		3FDB89C22B55575A00DF0C51 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89C12B55575A00DF0C51 /* Secrets.swift */; };
+		3FDB89C52B557B6300DF0C51 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDB89C42B557B6300DF0C51 /* StoreKit.framework */; };
+		3FDB89CA2B557EAC00DF0C51 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89C92B557EAC00DF0C51 /* TestView.swift */; };
+		3FDB89CC2B5580BB00DF0C51 /* myTipProductIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89CB2B5580BB00DF0C51 /* myTipProductIdentifiers.swift */; };
+		3FDB89CF2B55845900DF0C51 /* TipStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89CE2B55845900DF0C51 /* TipStore.swift */; };
+		3FDB89D12B55882600DF0C51 /* TipsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89D02B55882600DF0C51 /* TipsButtonView.swift */; };
+		3FDB89D32B55885E00DF0C51 /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89D22B55885E00DF0C51 /* TipsView.swift */; };
+		3FDB89D52B55888400DF0C51 /* TipsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89D42B55888400DF0C51 /* TipsItemView.swift */; };
+		3FDB89D72B566FE400DF0C51 /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89D62B566FE400DF0C51 /* ThanksView.swift */; };
 		3FF72A3D2B17356C004C2400 /* theSidewinderChecklistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */; };
 		3FF72A412B17356D004C2400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF72A402B17356D004C2400 /* Assets.xcassets */; };
 		3FF72A442B17356D004C2400 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF72A432B17356D004C2400 /* Preview Assets.xcassets */; };
@@ -105,6 +119,19 @@
 		3FA1980F2B17B24500B66CC0 /* TransportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportView.swift; sourceTree = "<group>"; };
 		3FA198112B17B56500B66CC0 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		3FA198132B18864C00B66CC0 /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
+		3FDB89B42B553BCD00DF0C51 /* BuyMeACoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyMeACoffeeView.swift; sourceTree = "<group>"; };
+		3FDB89B62B553F6700DF0C51 /* Coffee_Shop_Cup.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Coffee_Shop_Cup.scn; sourceTree = "<group>"; };
+		3FDB89B82B553FA700DF0C51 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
+		3FDB89C12B55575A00DF0C51 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		3FDB89C42B557B6300DF0C51 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.2.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		3FDB89C92B557EAC00DF0C51 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		3FDB89CB2B5580BB00DF0C51 /* myTipProductIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTipProductIdentifiers.swift; sourceTree = "<group>"; };
+		3FDB89CD2B55817400DF0C51 /* TheSidewinderChecklistStoreKitConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = TheSidewinderChecklistStoreKitConfiguration.storekit; sourceTree = "<group>"; };
+		3FDB89CE2B55845900DF0C51 /* TipStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipStore.swift; sourceTree = "<group>"; };
+		3FDB89D02B55882600DF0C51 /* TipsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsButtonView.swift; sourceTree = "<group>"; };
+		3FDB89D22B55885E00DF0C51 /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
+		3FDB89D42B55888400DF0C51 /* TipsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsItemView.swift; sourceTree = "<group>"; };
+		3FDB89D62B566FE400DF0C51 /* ThanksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
 		3FF72A392B17356C004C2400 /* theSidewinderChecklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theSidewinderChecklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theSidewinderChecklistApp.swift; sourceTree = "<group>"; };
 		3FF72A402B17356D004C2400 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +145,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FDB89C52B557B6300DF0C51 /* StoreKit.framework in Frameworks */,
+				3FDB89BE2B5556B300DF0C51 /* RevenueCatUI in Frameworks */,
+				3FDB89BC2B5556B300DF0C51 /* RevenueCat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +193,7 @@
 		3FA197C42B1739A900B66CC0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3FDB89C02B55573900DF0C51 /* Secrets */,
 				3F600A9B2B415E72006A4AED /* Managers */,
 				3FA197C52B1739BB00B66CC0 /* Handlers */,
 			);
@@ -204,6 +235,7 @@
 				3F600A9C2B41D0CD006A4AED /* BuildLogs */,
 				3FA197EE2B174B7900B66CC0 /* DivePlanning */,
 				3FA197D22B173B7E00B66CC0 /* Settings */,
+				3FDB89B32B553BBA00DF0C51 /* BuyMeACoffee */,
 				3FA197D12B173B7A00B66CC0 /* Components */,
 			);
 			path = Core;
@@ -336,11 +368,46 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3FDB89B32B553BBA00DF0C51 /* BuyMeACoffee */ = {
+			isa = PBXGroup;
+			children = (
+				3FDB89B42B553BCD00DF0C51 /* BuyMeACoffeeView.swift */,
+				3FDB89B82B553FA700DF0C51 /* SceneView.swift */,
+				3FDB89C92B557EAC00DF0C51 /* TestView.swift */,
+				3FDB89CB2B5580BB00DF0C51 /* myTipProductIdentifiers.swift */,
+				3FDB89CE2B55845900DF0C51 /* TipStore.swift */,
+				3FDB89D02B55882600DF0C51 /* TipsButtonView.swift */,
+				3FDB89D22B55885E00DF0C51 /* TipsView.swift */,
+				3FDB89D42B55888400DF0C51 /* TipsItemView.swift */,
+				3FDB89D62B566FE400DF0C51 /* ThanksView.swift */,
+			);
+			path = BuyMeACoffee;
+			sourceTree = "<group>";
+		};
+		3FDB89C02B55573900DF0C51 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				3FDB89C12B55575A00DF0C51 /* Secrets.swift */,
+			);
+			path = Secrets;
+			sourceTree = "<group>";
+		};
+		3FDB89C32B557B6300DF0C51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FDB89C42B557B6300DF0C51 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3FF72A302B17356B004C2400 = {
 			isa = PBXGroup;
 			children = (
+				3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */,
+				3FDB89B62B553F6700DF0C51 /* Coffee_Shop_Cup.scn */,
 				3FF72A3B2B17356C004C2400 /* theSidewinderChecklist */,
 				3FF72A3A2B17356C004C2400 /* Products */,
+				3FDB89C32B557B6300DF0C51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -360,8 +427,8 @@
 				3FA197C82B173A1600B66CC0 /* SplashScreen */,
 				3FA197CD2B173ACA00B66CC0 /* Warning */,
 				3FA197D02B173B6800B66CC0 /* Core */,
-				3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */,
 				3FF72A402B17356D004C2400 /* Assets.xcassets */,
+				3FDB89CD2B55817400DF0C51 /* TheSidewinderChecklistStoreKitConfiguration.storekit */,
 				3FF72A422B17356D004C2400 /* Preview Content */,
 			);
 			path = theSidewinderChecklist;
@@ -392,6 +459,10 @@
 			dependencies = (
 			);
 			name = theSidewinderChecklist;
+			packageProductDependencies = (
+				3FDB89BB2B5556B300DF0C51 /* RevenueCat */,
+				3FDB89BD2B5556B300DF0C51 /* RevenueCatUI */,
+			);
 			productName = theSidewinderChecklist;
 			productReference = 3FF72A392B17356C004C2400 /* theSidewinderChecklist.app */;
 			productType = "com.apple.product-type.application";
@@ -420,6 +491,9 @@
 				Base,
 			);
 			mainGroup = 3FF72A302B17356B004C2400;
+			packageReferences = (
+				3FDB89BA2B5556B300DF0C51 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+			);
 			productRefGroup = 3FF72A3A2B17356C004C2400 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -434,6 +508,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FDB89B72B553F6700DF0C51 /* Coffee_Shop_Cup.scn in Resources */,
 				3FF72A442B17356D004C2400 /* Preview Assets.xcassets in Resources */,
 				3FF72A412B17356D004C2400 /* Assets.xcassets in Resources */,
 			);
@@ -452,35 +527,45 @@
 				3FA197CA2B173A3600B66CC0 /* SplashViewModifier.swift in Sources */,
 				3FA197ED2B1746F700B66CC0 /* ToDo.swift in Sources */,
 				3FA197CC2B173A5000B66CC0 /* SplashView.swift in Sources */,
+				3FDB89CA2B557EAC00DF0C51 /* TestView.swift in Sources */,
 				3FA198022B178A9A00B66CC0 /* NegativeTestView.swift in Sources */,
 				3F6985C12B345CDA0010E1D4 /* LinearityCheckAirView.swift in Sources */,
 				3FA197C72B1739DF00B66CC0 /* NotificationHandler.swift in Sources */,
 				3FA197E92B17469B00B66CC0 /* GearListView.swift in Sources */,
 				3FA198082B17A44C00B66CC0 /* FlushView.swift in Sources */,
+				3FDB89B52B553BCD00DF0C51 /* BuyMeACoffeeView.swift in Sources */,
 				3F600A9A2B415E59006A4AED /* LocationManager.swift in Sources */,
 				3FA198062B17A20100B66CC0 /* OxygenView.swift in Sources */,
 				3FA197F42B17533900B66CC0 /* PrimaryButtonModifier.swift in Sources */,
 				3F600A942B40AE73006A4AED /* DivePlanningView.swift in Sources */,
+				3FDB89D12B55882600DF0C51 /* TipsButtonView.swift in Sources */,
+				3FDB89D32B55885E00DF0C51 /* TipsView.swift in Sources */,
 				3FA1980E2B17AADC00B66CC0 /* DiluentView.swift in Sources */,
+				3FDB89D72B566FE400DF0C51 /* ThanksView.swift in Sources */,
 				3FF8B7AE2B514DF400DF2AA0 /* BuildLogDetailView.swift in Sources */,
 				3FA198142B18864C00B66CC0 /* Build.swift in Sources */,
 				3FF8B7B02B515DA000DF2AA0 /* CellAccuracyBarChart.swift in Sources */,
 				3FF72A3D2B17356C004C2400 /* theSidewinderChecklistApp.swift in Sources */,
+				3FDB89C22B55575A00DF0C51 /* Secrets.swift in Sources */,
 				3FA197F62B1753B600B66CC0 /* ComputerView.swift in Sources */,
 				3F600AA02B42E0C2006A4AED /* SummaryCard.swift in Sources */,
 				3FA197F22B1752FD00B66CC0 /* StartView.swift in Sources */,
 				3FA198122B17B56500B66CC0 /* SummaryView.swift in Sources */,
 				3FA198042B178ED000B66CC0 /* InlineTimer.swift in Sources */,
+				3FDB89CC2B5580BB00DF0C51 /* myTipProductIdentifiers.swift in Sources */,
+				3FDB89D52B55888400DF0C51 /* TipsItemView.swift in Sources */,
 				3FA198102B17B24500B66CC0 /* TransportView.swift in Sources */,
 				3FA197E12B173D2D00B66CC0 /* WarningHeaderView.swift in Sources */,
 				3FA1980A2B17A84100B66CC0 /* CalibrateView.swift in Sources */,
 				3FA197FC2B17850200B66CC0 /* ScrubbersView.swift in Sources */,
 				3FA197CF2B173AF700B66CC0 /* WarningView.swift in Sources */,
+				3FDB89CF2B55845900DF0C51 /* TipStore.swift in Sources */,
 				3FA197EB2B1746DB00B66CC0 /* DetailView.swift in Sources */,
 				3F53E9C12B47069A00E821BC /* SummaryCellO2Reading.swift in Sources */,
 				3FA197FE2B17878B00B66CC0 /* CounterlungView.swift in Sources */,
 				3F600A9E2B41D0E5006A4AED /* BuildLogsView.swift in Sources */,
 				3FA197DD2B173CA300B66CC0 /* RoundedShape.swift in Sources */,
+				3FDB89B92B553FA700DF0C51 /* SceneView.swift in Sources */,
 				3FA197E32B173D7E00B66CC0 /* TitleHeaderView.swift in Sources */,
 				3FA198002B1788A300B66CC0 /* LoopView.swift in Sources */,
 				3FA197DF2B173CF700B66CC0 /* ProgressBarView.swift in Sources */,
@@ -702,6 +787,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3FDB89BA2B5556B300DF0C51 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.31.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3FDB89BB2B5556B300DF0C51 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FDB89BA2B5556B300DF0C51 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		3FDB89BD2B5556B300DF0C51 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FDB89BA2B5556B300DF0C51 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3FF72A312B17356B004C2400 /* Project object */;
 }

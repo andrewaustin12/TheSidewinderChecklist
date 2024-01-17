@@ -7,16 +7,22 @@
 
 import SwiftUI
 import SwiftData
+//import RevenueCat
+//import RevenueCatUI
 
 @main
 struct theSidewinderChecklistApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let container: ModelContainer
     
+    @StateObject private var store = TipStore()
+    
     var body: some Scene {
         WindowGroup {
             WarningView()
                 .modelContainer(container)
+                .environmentObject(store)
+                
 
         }
     }
@@ -29,6 +35,9 @@ struct theSidewinderChecklistApp: App {
             fatalError("Could not configure the container")
         }
         print(URL.applicationSupportDirectory.path(percentEncoded: false))
+        
+//        Purchases.logLevel = .debug
+//        Purchases.configure(withAPIKey: Secrets.apiKey)
     }
 }
 

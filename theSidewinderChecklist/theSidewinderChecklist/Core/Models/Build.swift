@@ -34,6 +34,7 @@ class Build {
     var isOxygenTankPressureChecked = false
     var isOxygenTankAnalyzedChecked = false 
     var isOxygenTankAttachedChecked = false
+    var isCmfChecked = false
     var isDsvFlushedChecked = false
     var isOxygenMvRecordedChecked = false
     var mvO2Values = Array(repeating: 0.0, count: 3)
@@ -47,7 +48,42 @@ class Build {
     var isO2closedChecked = false
     var isComputerSecuredChecked = false
     
-    init(id: UUID = UUID(), dateAdded: Date = Date.now, isComputerBatteryGoodChecked: Bool = false, mvAirValues: [Double] = Array(repeating: 0.0, count: 3), mvResults: [Double] = Array(repeating: 0.0, count: 3), isLinearityCheckAirChecked: Bool = false, isCannistersPackedChecked: Bool = false, isCannistersOringsInspectedChecked: Bool = false, isCannistersTowersAlignedChecked: Bool = false, isStackTimeResetChecked: Bool = false, isCounterlungInHarnessChecked: Bool = false, isCounterlungOringsInspectedChecked: Bool = false, isCannistersAttachedChecked: Bool = false, isMouthpieceInspectedChecked: Bool = false, isMushroomValveTestedChecked: Bool = false, isLoopOringsInspectedChecked: Bool = false, isLoopAttachedChecked: Bool = false, isNegativeTestCompletedChecked: Bool = false, isOxygenTankPressureChecked: Bool = false, isOxygenTankAnalyzedChecked: Bool = false, isOxygenTankAttachedChecked: Bool = false, isDsvFlushedChecked: Bool = false, isOxygenMvRecordedChecked: Bool = false, mvO2Values: [Double] = Array(repeating: 0.0, count: 3), accuracyValues: [Double] = Array(repeating: 0.0, count: 3), isComputerCalibratedChecked: Bool = false, isPosTestCompleteChecked: Bool = false, isDilBailPressureCheckChecked: Bool = false, isDilBailAnalyzedChecked: Bool = false, isComputerMixSetChecked: Bool = false, isDsvClosedChecked: Bool = false, isO2closedChecked: Bool = false, isComputerSecuredChecked: Bool = false) {
+    init(
+        id: UUID = UUID(),
+        dateAdded: Date = Date.now,
+        isComputerBatteryGoodChecked: Bool = false,
+        mvAirValues: [Double] = Array(repeating: 0.0, count: 3),
+        mvResults: [Double] = Array(repeating: 0.0, count: 3),
+        isLinearityCheckAirChecked: Bool = false,
+        isCannistersPackedChecked: Bool = false,
+        isCannistersOringsInspectedChecked: Bool = false,
+        isCannistersTowersAlignedChecked: Bool = false,
+        isStackTimeResetChecked: Bool = false,
+        isCounterlungInHarnessChecked: Bool = false,
+        isCounterlungOringsInspectedChecked: Bool = false,
+        isCannistersAttachedChecked: Bool = false,
+        isMouthpieceInspectedChecked: Bool = false,
+        isMushroomValveTestedChecked: Bool = false,
+        isLoopOringsInspectedChecked: Bool = false,
+        isLoopAttachedChecked: Bool = false,
+        isNegativeTestCompletedChecked: Bool = false,
+        isOxygenTankPressureChecked: Bool = false,
+        isOxygenTankAnalyzedChecked: Bool = false,
+        isOxygenTankAttachedChecked: Bool = false,
+        isCmfChecked: Bool = false,
+        isDsvFlushedChecked: Bool = false,
+        isOxygenMvRecordedChecked: Bool = false,
+        mvO2Values: [Double] = Array(repeating: 0.0, count: 3),
+        accuracyValues: [Double] = Array(repeating: 0.0, count: 3),
+        isComputerCalibratedChecked: Bool = false,
+        isPosTestCompleteChecked: Bool = false,
+        isDilBailPressureCheckChecked: Bool = false,
+        isDilBailAnalyzedChecked: Bool = false,
+        isComputerMixSetChecked: Bool = false,
+        isDsvClosedChecked: Bool = false,
+        isO2closedChecked: Bool = false,
+        isComputerSecuredChecked: Bool = false
+    ) {
         self.id = id
         self.dateAdded = dateAdded
         self.isComputerBatteryGoodChecked = isComputerBatteryGoodChecked
@@ -69,6 +105,7 @@ class Build {
         self.isOxygenTankPressureChecked = isOxygenTankPressureChecked
         self.isOxygenTankAnalyzedChecked = isOxygenTankAnalyzedChecked
         self.isOxygenTankAttachedChecked = isOxygenTankAttachedChecked
+        self.isCmfChecked = isCmfChecked
         self.isDsvFlushedChecked = isDsvFlushedChecked
         self.isOxygenMvRecordedChecked = isOxygenMvRecordedChecked
         self.mvO2Values = mvO2Values
@@ -124,6 +161,7 @@ class Build {
         isOxygenTankAttachedChecked &&
         
         // Flush View 7
+        isCmfChecked &&
         isDsvFlushedChecked &&
         isOxygenMvRecordedChecked &&
         mvO2Values[0] != 0.0 &&
@@ -173,24 +211,25 @@ class Build {
         if !isOxygenTankPressureChecked { steps.append(15) }
         if !isOxygenTankAnalyzedChecked { steps.append(16) }
         if !isOxygenTankAttachedChecked { steps.append(17) }
-        if !isDsvFlushedChecked { steps.append(18) }
-        if !isOxygenMvRecordedChecked { steps.append(19) }
-        if mvO2Values[0] == 0.0 { steps.append(19)}
-        if mvO2Values[1] == 0.0 { steps.append(19)}
-        if mvO2Values[2] == 0.0 { steps.append(19)}
-        if !isPosTestCompleteChecked { steps.append(21) }
-        if !isDilBailPressureCheckChecked { steps.append(22) }
-        if !isDilBailAnalyzedChecked { steps.append(23) }
-        if !isComputerMixSetChecked { steps.append(24) }
-        if !isDsvClosedChecked { steps.append(25) }
-        if !isO2closedChecked { steps.append(26) }
-        if !isComputerSecuredChecked { steps.append(27) }
+        if !isCmfChecked { steps.append(18) }
+        if !isDsvFlushedChecked { steps.append(19) }
+        if !isOxygenMvRecordedChecked { steps.append(20) }
+        if mvO2Values[0] == 0.0 { steps.append(20)}
+        if mvO2Values[1] == 0.0 { steps.append(20)}
+        if mvO2Values[2] == 0.0 { steps.append(20)}
+        if !isPosTestCompleteChecked { steps.append(22) }
+        if !isDilBailPressureCheckChecked { steps.append(23) }
+        if !isDilBailAnalyzedChecked { steps.append(24) }
+        if !isComputerMixSetChecked { steps.append(25) }
+        if !isDsvClosedChecked { steps.append(26) }
+        if !isO2closedChecked { steps.append(27) }
+        if !isComputerSecuredChecked { steps.append(28) }
         return steps
     }
     
     var completedSteps: [Int] {
         var completed: [Int] = []
-        for step in 1...27 {
+        for step in 1...28 {
             if !incompleteSteps.contains(step) {
                 completed.append(step)
             }

@@ -30,7 +30,16 @@ struct GearListView: View {
                                 NavigationLink {
                                     DetailView(toDo: toDo)
                                 } label: {
-                                    Text(toDo.item)
+                                    if toDo.notes.isEmpty {
+                                        Text(toDo.item)
+                                    } else {
+                                        VStack(alignment: .leading) {
+                                            Text(toDo.item)
+                                            Text(toDo.notes)
+                                                .font(.caption)
+                                        }
+                                    }
+                                    
                                 }
                             }
                             .font(.title2)
