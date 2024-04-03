@@ -1,10 +1,3 @@
-//
-//  InlineTimer.swift
-//  theSidewinderChecklist
-//
-//  Created by andrew austin on 11/29/23.
-//
-
 import SwiftUI
 
 struct InlineTimer: View {
@@ -13,18 +6,12 @@ struct InlineTimer: View {
     @State private var timeRemaining: Int = 0
     @State private var isTimerRunning: Bool = false
     @State private var showAlert: Bool = false
+    @State private var expectedEndTime: Date?
 
     var formattedTime: String {
         let minutes = timeRemaining / 60
         let seconds = timeRemaining % 60
-
-        if minutes > 0 {
-            return String(format: "%d:%02d", minutes, seconds)
-        } else if seconds > 0 {
-            return String(format: "%d seconds", seconds)
-        } else {
-            return "Time's up!"
-        }
+        return minutes > 0 ? String(format: "%d:%02d", minutes, seconds) : "\(seconds) seconds"
     }
 
     var body: some View {
@@ -38,7 +25,7 @@ struct InlineTimer: View {
                 .pickerStyle(SegmentedPickerStyle())
                 
                 Button(action: {
-                    startTimer()
+                    isTimerRunning ? stopTimer() : startTimer()
                 }) {
                     Text(isTimerRunning ? "Stop" : "Start")
                         .foregroundColor(.white)
@@ -54,17 +41,14 @@ struct InlineTimer: View {
                         .font(.title)
                     Text("\(formattedTime)")
                         .font(.title)
-                        .overlay(
-                            Button(action: {}) {
-                                EmptyView()
-                            }
-                        )
-                        
                 }
             }
         }
         .alert(isPresented: $showAlert) {
-            Alert(title: Text("Negative Test Complete"), message: Text("The countdown timer has finished."), dismissButton: .default(Text("OK")))
+            Alert(title: Text("Timer Complete"), message: Text("The countdown timer has finished."), dismissButton: .default(Text("OK")))
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            adjustRemainingTime()
         }
     }
 
@@ -76,13 +60,14 @@ struct InlineTimer: View {
 
         timeRemaining = selectedTime
         isTimerRunning = true
+        expectedEndTime = Calendar.current.date(byAdding: .second, value: selectedTime, to: Date())
 
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            if timeRemaining > 0 {
-                timeRemaining -= 1
+            if self.timeRemaining > 0 {
+                self.timeRemaining -= 1
             } else {
-                stopTimer()
-                showAlert = true
+                self.stopTimer()
+                self.showAlert = true
             }
         }
     }
@@ -91,6 +76,23 @@ struct InlineTimer: View {
         timer?.invalidate()
         timer = nil
         isTimerRunning = false
+    }
+
+    private func adjustRemainingTime() {
+        guard let expectedEndTime = expectedEndTime else { return }
+
+        let currentTime = Date()
+        let remaining = Calendar.current.dateComponents([.second], from: currentTime, to: expectedEndTime).second ?? 0
+
+        if remaining > 0 {
+            timeRemaining = remaining
+        } else {
+            timeRemaining = 0
+            if isTimerRunning {
+                showAlert = true
+                isTimerRunning = false
+            }
+        }
     }
 }
 
@@ -104,8 +106,6 @@ struct InlineTimer_Previews: PreviewProvider {
 
         var body: some View {
             VStack {
-            
-
                 InlineTimer(selectedTime: $selectedTime)
                     .padding()
             }
