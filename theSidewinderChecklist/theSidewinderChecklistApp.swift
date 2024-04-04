@@ -28,6 +28,7 @@ struct theSidewinderChecklistApp: App {
         }
     }
     init() {
+        NotificationHandler().askPermission()
         let schema = Schema([Build.self, ToDo.self])
         let config = ModelConfiguration("SidewinderChecklist", schema: schema)
         do {

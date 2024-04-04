@@ -20,31 +20,23 @@ class NotificationHandler {
         }
     }
     
-    func sendNotification(date: Date, type: String, timeInterval: Double = 10, title: String, body: String) {
-        var trigger: UNNotificationTrigger?
+    func sendNotification(date: Date, type: String, title: String, body: String) {
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = body
+            content.sound = UNNotificationSound.default
 
-        if type == "date" {
-            let dateComponents = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: date)
-            trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        } else if type == "time" {
-            trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-        }
+            let timeInterval = date.timeIntervalSinceNow
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
 
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
-        content.sound = UNNotificationSound.default
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
 
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Notification sending failed with error: \(error.localizedDescription)")
-            } else {
-                print("Notification sent successfully")
+            UNUserNotificationCenter.current().add(request) { error in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                }
             }
         }
-    }
 
 }
 

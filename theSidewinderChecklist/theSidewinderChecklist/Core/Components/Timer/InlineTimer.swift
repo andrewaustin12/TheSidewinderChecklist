@@ -1,4 +1,5 @@
 import SwiftUI
+import UserNotifications
 
 struct InlineTimer: View {
     @Binding var selectedTime: Int
@@ -6,12 +7,14 @@ struct InlineTimer: View {
     @State private var timeRemaining: Int = 0
     @State private var isTimerRunning: Bool = false
     @State private var showAlert: Bool = false
-    @State private var expectedEndTime: Date?
+    
+    // Create an instance of NotificationHandler
+    @State private var notificationHandler = NotificationHandler()
 
     var formattedTime: String {
         let minutes = timeRemaining / 60
         let seconds = timeRemaining % 60
-        return minutes > 0 ? String(format: "%d:%02d", minutes, seconds) : "\(seconds) seconds"
+        return String(format: "%02d:%02d", minutes, seconds)
     }
 
     var body: some View {
@@ -29,7 +32,7 @@ struct InlineTimer: View {
                 }) {
                     Text(isTimerRunning ? "Stop" : "Start")
                         .foregroundColor(.white)
-                        .padding(9)
+                        .padding()
                         .background(isTimerRunning ? Color.red : Color.green)
                         .cornerRadius(8)
                 }
@@ -39,7 +42,7 @@ struct InlineTimer: View {
                 VStack {
                     Text("Time Remaining: ")
                         .font(.title)
-                    Text("\(formattedTime)")
+                    Text(formattedTime)
                         .font(.title)
                 }
             }
@@ -47,27 +50,26 @@ struct InlineTimer: View {
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Timer Complete"), message: Text("The countdown timer has finished."), dismissButton: .default(Text("OK")))
         }
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-            adjustRemainingTime()
-        }
     }
 
     private func startTimer() {
-        guard !isTimerRunning else {
-            stopTimer()
-            return
-        }
-
-        timeRemaining = selectedTime
+        guard !isTimerRunning else { return }
         isTimerRunning = true
-        expectedEndTime = Calendar.current.date(byAdding: .second, value: selectedTime, to: Date())
+        timeRemaining = selectedTime
+        
+        // Schedule the notification for when the timer is supposed to end.
+        notificationHandler.sendNotification(
+            date: Date().addingTimeInterval(Double(selectedTime)),
+            type: "date", // Since we're scheduling based on a future date
+            title: "Timer Complete",
+            body: "Your countdown timer has finished."
+        )
 
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
             } else {
                 self.stopTimer()
-                self.showAlert = true
             }
         }
     }
@@ -76,39 +78,16 @@ struct InlineTimer: View {
         timer?.invalidate()
         timer = nil
         isTimerRunning = false
-    }
-
-    private func adjustRemainingTime() {
-        guard let expectedEndTime = expectedEndTime else { return }
-
-        let currentTime = Date()
-        let remaining = Calendar.current.dateComponents([.second], from: currentTime, to: expectedEndTime).second ?? 0
-
-        if remaining > 0 {
-            timeRemaining = remaining
-        } else {
-            timeRemaining = 0
-            if isTimerRunning {
-                showAlert = true
-                isTimerRunning = false
-            }
+        // Now, notification is handled by startTimer, so this just handles UI.
+        if timeRemaining == 0 {
+            showAlert = true
         }
     }
 }
 
+// Preview Provider
 struct InlineTimer_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-    }
-
-    struct ContentView: View {
-        @State private var selectedTime = 30
-
-        var body: some View {
-            VStack {
-                InlineTimer(selectedTime: $selectedTime)
-                    .padding()
-            }
-        }
+        InlineTimer(selectedTime: .constant(30))
     }
 }
