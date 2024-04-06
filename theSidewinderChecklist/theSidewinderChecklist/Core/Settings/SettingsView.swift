@@ -36,7 +36,7 @@ struct SettingsView: View {
                 }
                 
                 Section("Support") {
-                    Label("Version 1.2", systemImage: "apps.iphone")
+                    Label("Version 1.3", systemImage: "apps.iphone")
                     
                     Label {
                         HStack {

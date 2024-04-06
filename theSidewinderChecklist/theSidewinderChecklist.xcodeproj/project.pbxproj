@@ -59,6 +59,7 @@
 		3FDB89D32B55885E00DF0C51 /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89D22B55885E00DF0C51 /* TipsView.swift */; };
 		3FDB89D52B55888400DF0C51 /* TipsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89D42B55888400DF0C51 /* TipsItemView.swift */; };
 		3FDB89D72B566FE400DF0C51 /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB89D62B566FE400DF0C51 /* ThanksView.swift */; };
+		3FE8E6CD2BC14F1A00598233 /* TestInlineTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE8E6CC2BC14F1A00598233 /* TestInlineTimer.swift */; };
 		3FF72A3D2B17356C004C2400 /* theSidewinderChecklistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */; };
 		3FF72A412B17356D004C2400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF72A402B17356D004C2400 /* Assets.xcassets */; };
 		3FF72A442B17356D004C2400 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF72A432B17356D004C2400 /* Preview Assets.xcassets */; };
@@ -132,6 +133,7 @@
 		3FDB89D22B55885E00DF0C51 /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
 		3FDB89D42B55888400DF0C51 /* TipsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsItemView.swift; sourceTree = "<group>"; };
 		3FDB89D62B566FE400DF0C51 /* ThanksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
+		3FE8E6CC2BC14F1A00598233 /* TestInlineTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInlineTimer.swift; sourceTree = "<group>"; };
 		3FF72A392B17356C004C2400 /* theSidewinderChecklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theSidewinderChecklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF72A3C2B17356C004C2400 /* theSidewinderChecklistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theSidewinderChecklistApp.swift; sourceTree = "<group>"; };
 		3FF72A402B17356D004C2400 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				3FA198032B178ED000B66CC0 /* InlineTimer.swift */,
+				3FE8E6CC2BC14F1A00598233 /* TestInlineTimer.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				3F53E9BF2B46FFFE00E821BC /* SummaryCellAirReading.swift in Sources */,
 				3F600A982B415B00006A4AED /* WeatherKitManager.swift in Sources */,
 				3FA197CA2B173A3600B66CC0 /* SplashViewModifier.swift in Sources */,
+				3FE8E6CD2BC14F1A00598233 /* TestInlineTimer.swift in Sources */,
 				3FA197ED2B1746F700B66CC0 /* ToDo.swift in Sources */,
 				3FA197CC2B173A5000B66CC0 /* SplashView.swift in Sources */,
 				3FDB89CA2B557EAC00DF0C51 /* TestView.swift in Sources */,
@@ -718,7 +722,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.andy.theSidewinderChecklist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -754,7 +758,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.andy.theSidewinderChecklist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

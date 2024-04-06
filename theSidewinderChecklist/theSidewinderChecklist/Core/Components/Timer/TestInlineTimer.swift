@@ -1,21 +1,24 @@
-import SwiftUI
-import UserNotifications
+//
+//  TestInlineTimer.swift
+//  theSidewinderChecklist
+//
+//  Created by andrew austin on 4/6/24.
+//
 
-struct InlineTimer: View {
+import SwiftUI
+
+struct TestInlineTimer: View {
     @Binding var selectedTime: Int
     @State private var timer: Timer?
     @State private var timeRemaining: Int = 0
     @State private var isTimerRunning: Bool = false
     @State private var showAlert: Bool = false
     @State private var expectedEndTime: Date?
-    
-    // Create an instance of NotificationHandler
-    @State private var notificationHandler = NotificationHandler()
 
     var formattedTime: String {
         let minutes = timeRemaining / 60
         let seconds = timeRemaining % 60
-        return String(format: "%02d:%02d", minutes, seconds)
+        return minutes > 0 ? String(format: "%d:%02d", minutes, seconds) : "\(seconds) seconds"
     }
 
     var body: some View {
@@ -27,13 +30,13 @@ struct InlineTimer: View {
                     Text("5 minutes").tag(300)
                 }
                 .pickerStyle(SegmentedPickerStyle())
-                
+
                 Button(action: {
                     isTimerRunning ? stopTimer() : startTimer()
                 }) {
                     Text(isTimerRunning ? "Stop" : "Start")
                         .foregroundColor(.white)
-                        .padding()
+                        .padding(9)
                         .background(isTimerRunning ? Color.red : Color.green)
                         .cornerRadius(8)
                 }
@@ -43,7 +46,7 @@ struct InlineTimer: View {
                 VStack {
                     Text("Time Remaining: ")
                         .font(.title)
-                    Text(formattedTime)
+                    Text("\(formattedTime)")
                         .font(.title)
                 }
             }
@@ -57,21 +60,16 @@ struct InlineTimer: View {
     }
 
     private func startTimer() {
-        guard !isTimerRunning else { return }
-        isTimerRunning = true
-        timeRemaining = selectedTime
-        expectedEndTime = Calendar.current.date(byAdding: .second, value: selectedTime, to: Date())
-        
-        
-        // Schedule the notification for when the timer is supposed to end.
-        notificationHandler.sendNotification(
-            date: Date().addingTimeInterval(Double(selectedTime)),
-            type: "date", // Since we're scheduling based on a future date
-            title: "Timer Complete",
-            body: "Your countdown timer has finished."
-        )
+        guard !isTimerRunning else {
+            stopTimer()
+            return
+        }
 
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+        timeRemaining = selectedTime
+        isTimerRunning = true
+        expectedEndTime = Calendar.current.date(byAdding: .second, value: selectedTime, to: Date())
+
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
             } else {
@@ -80,17 +78,12 @@ struct InlineTimer: View {
             }
         }
     }
-
     private func stopTimer() {
         timer?.invalidate()
         timer = nil
         isTimerRunning = false
-        // Now, notification is handled by startTimer, so this just handles UI.
-        if timeRemaining == 0 {
-            showAlert = true
-        }
     }
-    
+
     private func adjustRemainingTime() {
         guard let expectedEndTime = expectedEndTime else { return }
 
@@ -109,9 +102,18 @@ struct InlineTimer: View {
     }
 }
 
-// Preview Provider
-struct InlineTimer_Previews: PreviewProvider {
+struct TestInlineTimer_Previews: PreviewProvider {
     static var previews: some View {
-        InlineTimer(selectedTime: .constant(30))
+        ContentView()
+    }
+    struct ContentView: View {
+        @State private var selectedTime = 30
+        
+        var body: some View {
+            VStack {
+                InlineTimer(selectedTime: $selectedTime)
+                    .padding()
+            }
+        }
     }
 }
